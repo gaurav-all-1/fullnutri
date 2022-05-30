@@ -1,0 +1,37 @@
+::ng-deep .header-bottom .menu>li>.sf-with-ul {
+    padding-right: 10px;
+}
+::ng-deep .set-after::after{
+    content: '' !important;
+}
+::ng-deep .menu .megamenu.megamenu-md {
+    width: 244px !important;
+}
+::ng-deep .menu .menu-col {
+    margin-top: 0 !important;
+}
+::ng-deep .header-bottom .menu .megamenu.megamenu-md {
+    overflow: scroll !important;
+    height: 400px !important;
+    overflow-x: hidden !important;
+}
+// .menu .menu-col {
+//     background: #a6c76c !important;
+// }
+// ::ng-deep .header-1 .header-bottom .menu ul {
+//     background: #a6c76c !important;
+// }
+::ng-deep .menu .megamenu li a {
+    // color: #fff !important;
+    font-weight: 500 !important;
+    font-size: 1.6rem;
+}
+.menu .megamenu div>ul {
+    min-width: 215px !important;
+}
+// ::ng-deep .sale-cat{
+//     background: #a6c76c !important;
+// }
+// .banner {
+//     background-color: red;
+// }

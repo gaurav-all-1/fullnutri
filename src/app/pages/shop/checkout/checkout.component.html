@@ -1,0 +1,325 @@
+<main class="main">
+    <molla-page-header title="Checkout" subtitle="Shop"></molla-page-header>
+    <nav class="breadcrumb-nav">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a routerLink="/">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Checkout</li>
+            </ol>
+        </div>
+    </nav>
+
+    <div class="page-content">
+        <div class="checkout">
+            <div class="container">
+                <div class="checkout-discount">
+                    <!-- <form action="#" id="checkout-discount-form">
+                        <input type="text" class="form-control" required id="checkout-discount-input"
+                            (click)="addOpacity($event)">
+                        <label for="checkout-discount-input" class="text-truncate">Have a coupon? <span>Click here to
+                                enter your code</span></label>
+                    </form> -->
+                </div>
+                <form action="#" [formGroup]="userForm">
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <h2 class="checkout-title">Billing Details</h2>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>First Name *</label>
+                                    <input type="text" class="form-control" formControlName="firstName" name="firstName" required [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                        <div *ngIf="f.firstName.errors.required">first name is required</div>
+                                      </div>
+                                      <div *ngIf="(userForm.controls.firstName.invalid &&  userForm.controls.firstName.touched) || userForm.controls.firstName.dirty">
+                                        <small *ngIf="userForm.controls.firstName.errors?.required" class="text-danger">First name is required</small>
+                                        <small *ngIf="userForm.controls.firstName.errors?.pattern" class="text-danger">Please provide a valid first name</small>
+                                      </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label>Last Name *</label>
+                                    <input type="text" class="form-control" formControlName="lastName" name="lastName" required [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                        <div *ngIf="f.lastName.errors.required">last name is required</div>
+                                      </div>
+
+                                      <div *ngIf="(userForm.controls.lastName.invalid &&  userForm.controls.lastName.touched) || userForm.controls.lastName.dirty">
+                                        <small *ngIf="userForm.controls.lastName.errors?.required" class="text-danger">last name is required</small>
+                                        <small *ngIf="userForm.controls.lastName.errors?.pattern" class="text-danger">Please provide a valid last name</small>
+                                      </div>
+                                </div>
+                            </div>
+
+                            <!-- <label>Company Name (Optional)</label>
+                            <input type="text" class="form-control" name="company"> -->
+
+                            <label>Country *</label>
+                            <input type="text" class="form-control" formControlName="country" name="country" required [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+                            <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                                <div *ngIf="f.country.errors.required">country name is required</div>
+                              </div>
+                              <div *ngIf="(userForm.controls.country.invalid &&  userForm.controls.country.touched) || userForm.controls.country.dirty">
+                                <small *ngIf="userForm.controls.country.errors?.required" class="text-danger">Country name is required</small>
+                                <small *ngIf="userForm.controls.country.errors?.pattern" class="text-danger">Please provide a valid country name</small>
+                              </div>
+                            <label>Street address *</label>
+                            <input type="text" class="form-control" name="street1" formControlName="address" placeholder="House number and Street name" required [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+                            <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                                <div *ngIf="f.address.errors.required">street name is required</div>
+                              </div>
+                              <div *ngIf="(userForm.controls.address.invalid &&  userForm.controls.address.touched) || userForm.controls.address.dirty">
+                                <small *ngIf="userForm.controls.address.errors?.required" class="text-danger">Address is required</small>
+                                <small *ngIf="userForm.controls.address.errors?.pattern" class="text-danger">Please provide a valid Address</small>
+                              </div>
+                            <!-- <input type="text" class="form-control" name="street2" placeholder="Appartments, suite, unit etc ..."
+                                required> -->
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Town / City *</label>
+                                    <input type="text" name="city" formControlName="city" class="form-control" required [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+                                    <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                                        <div *ngIf="f.city.errors.required">city name is required</div>
+                                      </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label>State *</label>
+                                    <input type="text" name="state" formControlName="state" class="form-control" required [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
+                                    <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                                        <div *ngIf="f.state.errors.required">state name is required</div>
+                                      </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Postcode / ZIP *</label>
+                                    <input type="text" name="postcode" formControlName="pinNumber" class="form-control" required [ngClass]="{ 'is-invalid': submitted && f.pinNumber.errors }">
+                                    
+                                    <div *ngIf="submitted && f.pinNumber.errors" class="invalid-feedback">
+                                        <div *ngIf="f.pinNumber.errors.required">pincode is required</div>
+                                      </div>
+                                      <div *ngIf="(userForm.controls.pinNumber.invalid &&  userForm.controls.pinNumber.touched) || userForm.controls.pinNumber.dirty">
+                                        <small *ngIf="userForm.controls.pinNumber.errors?.required" class="text-danger">Pincode is required</small>
+                                        <small *ngIf="userForm.controls.pinNumber.errors?.pattern" class="text-danger">Please provide a valid Pin number</small>
+                                      </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label>Phone *</label>
+                                    <input type="tel" name="tel" formControlName="Phone" class="form-control" required [ngClass]="{ 'is-invalid': submitted && f.Phone.errors }">
+                                    <div *ngIf="submitted && f.Phone.errors" class="invalid-feedback">
+                                        <div *ngIf="f.Phone.errors.required">phone no is required</div>
+                                      </div>
+                                      <div *ngIf="(userForm.controls.Phone.invalid &&  userForm.controls.Phone.touched) || userForm.controls.Phone.dirty">
+                                        <small *ngIf="userForm.controls.Phone.errors?.required" class="text-danger">Phone is required</small>
+                                        <small *ngIf="userForm.controls.Phone.errors?.pattern" class="text-danger">Please provide a valid Phone number</small>
+                                      </div>
+                                </div>
+                            </div>
+
+                            <label>Email address *</label>
+                            <input type="email" name="email" formControlName="Email" class="form-control" required [ngClass]="{ 'is-invalid': submitted && f.Email.errors }">
+                            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                                <div *ngIf="f.Email.errors.required">email is required</div>
+                              </div>
+                               <!-- <div *ngIf="userForm.control['Email'].error?.pattern">
+                                  <small> please enter Valid email.</small>
+                               </div>  -->
+                               <div *ngIf="(userForm.controls.Email.invalid &&  userForm.controls.Email.touched) || userForm.controls.Email.dirty">
+                                <small *ngIf="userForm.controls.Email.errors?.required" class="text-danger">email is required</small>
+                                <small *ngIf="userForm.controls.Email.errors?.pattern" class="text-danger">Please provide a valid email address</small>
+                              </div>
+
+
+                            <!-- <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="checkout-create-acc">
+                                <label class="custom-control-label" for="checkout-create-acc">Create an account?</label>
+                            </div>  
+
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox mt-0 address-box">
+                                    <input type="checkbox" class="custom-control-input" id="checkout-diff-address"
+                                        (change)="formToggle($event)">
+                                    <label class="custom-control-label" for="checkout-diff-address">Ship to a different
+                                        address?</label>
+                                </div>
+                               
+                            </div>
+
+                            <label>Order notes (optional)</label>
+                            <textarea class="form-control" cols="30" rows="4"
+                                placeholder="Notes about your order, e.g. special notes for delivery"></textarea> -->
+                        </div>
+                        <aside class="col-lg-3">
+                            <div class="summary">
+                                <h3 class="summary-title">Your Order</h3>
+
+                                <table class="table table-summary">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr *ngFor="let product of cartData">
+                                            <td><a
+                                                    [routerLink]="['/product/NutrivillageProducts/'+ product.inventory.product.id]">{{ product.inventory.product.name }}</a>
+                                            </td>
+                                            <td><i class="fa-solid fa-indian-rupee-sign"></i>{{product.quantity * product.inventory.price}}</td>
+                                        </tr>
+                                        <tr class="summary-subtotal">
+                                            <td>Subtotal:</td>
+                                            <td><i class="fa-solid fa-indian-rupee-sign"></i>{{totalAmount}}</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>Discount:</td>
+                                            <td><i class="fa-solid fa-indian-rupee-sign"></i>{{this.discount}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Shipping:</td>
+                                            <td>Free shipping</td>
+                                        </tr>
+                                        <tr class="summary-total">
+                                            <td>Total:</td>
+                                            <td><i class="fa-solid fa-indian-rupee-sign"></i>{{finalamount}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div>
+                                    <div class="form-check first_box">
+                                        <input class="form-check-input" type="radio" value="RZP" (change)="onItemChange($event)" name="flexRadioDefault" id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                          Online Payment
+                                        </label>
+                                      </div>
+                                      <div class="form-check second_box">
+                                        <input class="form-check-input" type="radio" value="COD" (change)="onItemChange($event)" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                          Cash on deleivery
+                                        </label>
+                                      </div>
+                                </div>
+                              
+                                  
+
+                                <!-- <molla-accordion adClass="accordion-summary" id="accordion-payment">
+                                    <div class="card">
+                                        <div class="card-header" id="heading-1">
+                                            <h2 class="card-title">
+                                                <a class="toggle-button" role="button" data-toggle="collapse"
+                                                    href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+                                                    Direct bank transfer
+                                                </a>
+                                            </h2>
+                                        </div>
+                                        <div id="collapse-1" class="collapse show" aria-labelledby="heading-1"
+                                            data-parent="#accordion-payment">
+                                            <div class="card-body">
+                                                Make your payment directly into our bank account. Please use your Order
+                                                ID as
+                                                the payment reference. Your order will not be shipped until the funds
+                                                have
+                                                cleared in our account.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-header" id="heading-2">
+                                            <h2 class="card-title">
+                                                <a class="toggle-button collapsed" role="button" data-toggle="collapse"
+                                                    href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+                                                    Check payments
+                                                </a>
+                                            </h2>
+                                        </div>
+                                        <div id="collapse-2" class="collapse" aria-labelledby="heading-2"
+                                            data-parent="#accordion-payment">
+                                            <div class="card-body">
+                                                Ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque
+                                                volutpat mattis eros. Nullam malesuada erat ut turpis.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-header" id="heading-3">
+                                            <h2 class="card-title">
+                                                <a class="toggle-button collapsed" role="button" data-toggle="collapse"
+                                                    href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+                                                    Cash on delivery
+                                                </a>
+                                            </h2>
+                                        </div>
+                                        <div id="collapse-3" class="collapse" aria-labelledby="heading-3"
+                                            data-parent="#accordion-payment">
+                                            <div class="card-body">Quisque volutpat mattis eros. Lorem ipsum dolor sit
+                                                amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis
+                                                eros.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-header" id="heading-4">
+                                            <h2 class="card-title">
+                                                <a class="toggle-button collapsed" role="button" data-toggle="collapse"
+                                                    href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+                                                    PayPal
+                                                </a>
+                                            </h2>
+                                        </div>
+                                        <div id="collapse-4" class="collapse" aria-labelledby="heading-4"
+                                            data-parent="#accordion-payment">
+                                            <div class="card-body">
+                                                <small class="float-right paypal-link">What is PayPal?</small>
+                                                Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non,
+                                                semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis
+                                                fermentum.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-header" id="heading-5">
+                                            <h2 class="card-title">
+                                                <a class="toggle-button collapsed" role="button" data-toggle="collapse"
+                                                    href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
+                                                    Credit Card (Stripe)
+                                                </a>
+                                            </h2>
+                                        </div>
+                                        <div id="collapse-5" class="collapse" aria-labelledby="heading-5"
+                                            data-parent="#accordion-payment">
+                                            <div class="card-body">
+                                                <img src="assets/images/payments-summary.png" alt="payments cards">
+                                                Donec nec justo eget felis facilisis fermentum.Lorem
+                                                ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque
+                                                volutpat mattis eros. Lorem ipsum dolor sit ame.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </molla-accordion> -->
+
+                                <button type="submit" (click)="placeorder()" class="btn btn-outline-primary-2 btn-order btn-block">
+                                    <i [class.fa-refresh]="loader" class="fa fa-refresh fa-spin"></i>
+                                    <span class="btn-text">Place Order</span>
+                                    <span class="btn-hover-text">Proceed to Checkout</span>
+                                </button>
+                            </div>
+                        </aside>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,83 @@
+.popuplogin {
+    background-color: #74ab26;
+}
+.loginmessage {
+    color: #fff !important;
+}
+.modal-body {
+background-color: #fff;
+}
+::ng-deep .login-modal .modal-content {
+    overflow-x: hidden !important;
+    max-width: 850px !important;
+}
+.form-footer .btn-outline-primary-2 {
+    width: 100%;
+}
+.modal-body .close {
+    z-index: 999;
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 1%;
+    background: #a6c76c;
+}
+.icon-close {
+    color: #fff;
+}
+.popup-image {
+    width: 100%;
+    height: 100%;
+}
+.popup-image img {
+    width: 100%;
+    height: 100%;
+}
+.sign_with {
+    text-align: center;
+}
+.sign_btn{
+    text-align: center;
+    padding-top: 6%;
+}
+.google_login{
+    padding: 2%;
+    border: 1px solid #a6c76c;
+}
+.google_login:hover{
+    // border: 1px solid #a6c76c;
+    background-color: #a6c76c;
+    color: #fff !important;
+}
+.google_login:hover a{
+    // border: 1px solid #a6c76c;
+    // background-color: #a6c76c;
+    color: #fff !important;
+}
+.sign_btn i {
+    color: #c33;
+}
+
+.password_forgot a {
+    color: #666;
+}
+.password_forgot {
+    text-align: end;
+}
+
+::ng-deep .password_forgot a:hover {
+    color: #a6c76c !important;
+}
+
+.login_message {
+    padding-bottom: 10px;
+}
+
+.upper_box {
+    margin-top: -20px;
+}
+
+@media (max-width:991px) {
+    .popup-image {
+        display: none;
+    }
+}

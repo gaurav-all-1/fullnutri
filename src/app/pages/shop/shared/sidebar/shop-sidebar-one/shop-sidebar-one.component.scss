@@ -1,0 +1,29 @@
+@media screen and (min-width: 992px) {
+    .sidebar {
+        position: sticky;
+        top: 70px;
+    }
+}
+.set-varient {
+    position: absolute;
+    top: -3px;
+    left: 25px;
+}
+.form-check-label {
+    font-weight: 500 !important;
+}
+::ng-deep .ngx-slider .ngx-slider-pointer {
+    background-color: #a6c76c !important; 
+}
+
+::ng-deep .ngx-slider .ngx-slider-selection {
+    background: #a6c76c !important;
+}
+::ng-deep .custom-control {
+    line-height: 27px !important;
+    min-height: 2.5rem !important;
+}
+.form-check-input {
+    margin-left: -2.25rem !important;
+}
+

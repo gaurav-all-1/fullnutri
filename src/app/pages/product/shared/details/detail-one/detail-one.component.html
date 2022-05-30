@@ -1,0 +1,205 @@
+<div class="product-details">
+    <h1 class="product-title">{{ product.name }}</h1>
+
+    <!-- <div class="ratings-container">
+        <div class="ratings">
+            <div class="ratings-val" [style.width]="product.ratings * 20 + '%'"></div>
+            <span class="tooltip-text">{{ product.ratings.toFixed(2) }}</span>
+        </div>
+        <span class="ratings-text">( {{ product.review }} Reviews )</span>
+    </div> -->
+
+    <div class="price-container">
+        
+        <span class="ratings-text1"> <i class="fa-solid fa-indian-rupee-sign"></i> {{ amount }}</span>
+    </div>
+
+    <!-- <div class="product-price" *ngIf="!product.stock || product.stock == 0 else elseBlock">
+        <span class="out-price">${{ product.variants[0].price }}</span>
+    </div>
+
+    <ng-template #elseBlock>
+        <div class="product-price" *ngIf="minPrice == maxPrice else elseBlock">${{ product.variants[0].price }}</div>
+        <ng-template #elseBlock>
+            <div class="product-price" *ngIf="product.variants.length == 0 else elseBlock">
+                <span class="new-price">${{ product.variants[0].price }}</span>
+                <span class="old-price">${{ product.variants[0].price }}</span>
+            </div>
+            <ng-template #elseBlock>
+                <div class="product-price">${{product.variants[0].price}}&ndash;${{product.variants[0].price}}</div>
+            </ng-template>
+        </ng-template>
+    </ng-template> -->
+
+    <div class="product-content">
+        <p></p>
+    </div>
+
+    <div>
+        <!-- <div class="details-filter-row details-row-size">
+            <label>Color:</label>
+            <div class="product-nav product-nav-dots">
+                <a href="javascript:;" [class.active]="item.color == selectedVariant.color"
+                    [class.disabled]="item.disabled" [style.background-color]="item.color"
+                    *ngFor="let item of colorArray" (click)="selectColor($event, item)"></a>
+            </div>
+        </div> -->
+
+        <div class="details-filter-row details-row-size">
+            <label for="size">Size:</label>
+            <div class="select-custom">
+              
+                <select name="size" id="size" class="form-control" (change)="updateVarient($event)">
+                    <option value="" >Select a size</option>
+                    <option  *ngFor="let variant of product.variants;" value="{{variant.id}}">{{variant.name}}</option>     
+                </select>
+            </div>
+
+            <!-- <a href="javascript:;" class="size-guide mr-4"><i class="icon-th-list"></i>size guide</a>
+            <a href="javascript:;" (click)="clearSelection()"
+                *ngIf="selectedVariant.color || selectedVariant.size != ''">clear</a> -->
+        </div>
+    </div>
+
+    <!-- <div class="variation-price" style="display: none;">
+        <div class="product-price">
+            ${{ selectedVariant.price ? selectedVariant.price.toFixed( 2 ) : 0 }}
+        </div>
+    </div> -->
+
+    <div class="details-filter-row details-row-size">
+        <label for="qty">Qty:</label>
+        <molla-quantity-input [max]="product.stock" (changeQty)="onChangeQty( $event )" [value]="qty">
+        </molla-quantity-input>
+    </div>
+
+   
+    
+    <div class="product-details-action">
+        <a  href="javascript:;" class="btn-product btn-cart"
+            [class.btn-disabled]="!( product.variants.length > 0 )"
+            (click)="addCart( $event, 0 )"><span>add to cart</span></a>
+
+        
+
+
+        <div class="details-action-wrapper">
+            <a  href="javascript:;" class="btn-product btn-wishlist" [class.added-to-wishlist]="isInWishlist()"
+                (click)="addToWishlist($event)">
+                <span>{{ isInWishlist() ? 'Go' : 'Add' }} to Wishlist</span>
+            </a>
+        </div>
+    </div>
+
+    <div style="padding-bottom: 10px;">
+        <a><button  class="btn btn-outline-primary-2" (click)="buyNowLink($event)">
+            <span>Buy Now</span><i
+            class="icon-long-arrow-right"></i>
+        </button></a>
+    </div>
+
+    <!-- <div *ngIf="!token" style="padding-bottom: 10px;">
+        <a><button (click)="onhide()" [disabled]="!variant?true:false" class="btn btn-outline-primary-2">
+            <span>Buy Now</span><i
+            class="icon-long-arrow-right"></i>
+        </button></a>
+    </div> -->
+
+    <div class="product-details-footer">
+       
+            <span>Share this product with your loved ones</span>          
+
+    </div>
+           
+        
+        
+
+        <div class="social-icons social-icons-sm">
+            <div>
+                <share-buttons theme="circles-dark"
+                [include]="['copy', 'facebook', 'telegram', 'twitter', 'whatsapp']"
+                [showIcon]="true"
+                [showText]="false"
+                url={{this.liveurl}}
+                description="Nutrivillage Social Media"
+                twitterAccount="Nutrivillage"
+                class="">
+              </share-buttons>
+            </div>
+           
+        
+          
+
+        </div>
+
+        <div *ngIf="product.stock < 1" class="stock">
+        <span class="out-of-stock">Out of stock</span>
+        </div>
+    
+    <div class="sticky-bar d-none">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <figure class="product-media">
+                        <a [routerLink]="['/product/NutrivillageProducts/'+ product.id]">
+                            <molla-image [src]="product.image" alt="Product"
+                                class="product-image">
+                            </molla-image>
+                        </a>
+                    </figure>
+                    <h3 class="product-title">
+                        <a [routerLink]="['/product/NutrivillageProducts/'+ product.id]">{{ product.name }}</a>
+                    </h3>
+                </div>
+
+
+
+
+
+
+                <div class="col-6 justify-content-end">
+                    <div class="product-price" *ngIf="selectedVariant.color && selectedVariant.size != '' else variationPrice">
+                        ${{ selectedVariant.price ? selectedVariant.price.toFixed( 2 ) : 0 }}
+                    </div>
+                    <ng-template #variationPrice>
+                        <div class="product-price" *ngIf="!product.stock || product.stock == 0 else elseBlock">
+                            <span class="out-price">${{ product.price.toFixed(2) }}</span>
+                        </div>
+
+                        <ng-template #elseBlock>
+                            <div class="product-price" *ngIf="minPrice == maxPrice else elseBlock">
+                                ${{ minPrice.toFixed(2) }}</div>
+                            <ng-template #elseBlock>
+                                <div class="product-price" *ngIf="product.variants.length == 0 else elseBlock">
+                                    <span class="new-price">${{ minPrice.toFixed(2) }}</span>
+                                    <span class="old-price">${{ maxPrice.toFixed(2) }}</span>
+                                </div>
+                                <ng-template #elseBlock>
+                                    <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>{{ product.variants[0].price }}
+                                    </div>
+                                </ng-template>
+                            </ng-template>
+                        </ng-template>
+                    </ng-template>
+
+                    <molla-quantity-input [max]="product.stock" (changeQty)="onChangeQty( $event )" [value]="qty">
+                    </molla-quantity-input>
+
+                    <div class="product-details-action">
+                        <a href="javascript:;" class="btn-product btn-cart"
+            [class.btn-disabled]="!( product.variants.length > 0 )"
+            (click)="addCart( $event, 0 )"><span>add to cart</span></a>
+
+                        <div class="details-action-wrapper ml-0">
+                            <a href="javascript:;" class="btn-product btn-wishlist"
+                                [class.added-to-wishlist]="isInWishlist()" (click)="addToWishlist($event)">
+                                <span>{{ isInWishlist() ? 'go' : 'add' }} to wishlist</span>
+                            </a>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

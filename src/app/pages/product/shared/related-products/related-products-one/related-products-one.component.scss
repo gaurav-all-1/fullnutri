@@ -1,0 +1,16 @@
+// ::ng-deep .product.product-5 .product-body:hover {
+//     background-color: #000 !important;
+//     color: #a6c76c !important;
+// }
+::ng-deep .product.product-5 .product-body {
+    background-color: #a6c76c !important;
+    color: #fff !important;
+}
+::ng-deep .product.product-5 .product-body a:hover {
+    // background-color: #000 !important;
+    color: #000 !important;
+}
+::ng-deep .product.product-5 .product-body a {
+    // background-color: #a6c76c !important;
+    color: #fff !important;
+}

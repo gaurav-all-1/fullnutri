@@ -1,0 +1,152 @@
+<div class="container quickView-container" style="padding-left: 0; padding-right: 0">
+    <button title="Close (Esc)" type="button" class="mfp-close" (click)="closeQuickView()">×</button>
+
+    <div class="quickView-content horizontal {{loaderBody}}">
+        <div class="row {{loader}} mb-0" >
+            <div class="col-lg-6 p-0 pr-lg-2 mb-2 mb-lg-0">
+                <div class="skel-product-gallery"></div>
+                <div class="product-lg mb-1 position-relative" *ngIf="product">
+                    <span class="product-label label-new" *ngIf="product.name">New</span>
+                    <!-- <span class="product-label label-sale" *ngIf="product.name">Sale</span>
+                    <span class="product-label label-top" *ngIf="product.name">Top</span> -->
+                    <!-- <span class="product-label label-out" *ngIf="!product.stock || product.stock == 0">Out Of
+                        Stock</span> -->
+
+                    <owl-carousel carouselClasses="product-gallery-carousel owl-full owl-nav-dark" [options]="options"
+                        id="owl-quickview" #singleSlider>
+                        <molla-image class="d-block position-relative"
+                            [src]="product['image']">
+                        </molla-image>
+                    </owl-carousel>
+                </div>
+                <div class="product-sm row px-2" id="product-image-gallery" >
+                    <a href="#" 
+                        *ngFor="let new of productImage">
+                        <molla-image [src]="new.url" alt="Product side"
+                            class="product-image">
+                        </molla-image>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 quickview-desc pl-0 pl-lg-4 pr-0">
+                <div class="entry-summary">
+                    <div class="col-md-12">
+                        <div class="entry-summary1 mt-2 mt-md-0"></div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="entry-summary2"></div>
+                    </div>
+                </div>
+
+                <div class="product-details w-100 pr-lg-4" *ngIf="product">
+                    <h1 class="product-title">{{ product.name }}</h1>
+
+                    <!-- <div class="ratings-container">
+                        <div class="ratings">
+                            <div class="ratings-val" [style.width]="product.ratings * 20 + '%'"></div>
+                            <span class="tooltip-text">{{ product.name }}</span>
+                        </div>
+                        <span class="ratings-text">( {{ product.name }} Reviews )</span>
+                    </div> -->
+
+                    <!-- <div class="product-price" *ngIf="!product.stock || product.stock == 0 else elseBlock">
+                        <span class="out-price">${{ product.name }}</span>
+                    </div> -->
+
+                    <!-- <ng-template #elseBlock>
+                        <div class="product-price" *ngIf="minPrice == maxPrice else elseBlock">
+                            ${{ minPrice.toFixed(2) }}</div>
+                        <ng-template #elseBlock>
+                            <div class="product-price" *ngIf="product.variants.length == 0 else elseBlock">
+                                <span class="new-price">${{ minPrice.toFixed(2) }}</span>
+                                <span class="old-price">${{ maxPrice.toFixed(2) }}</span>
+                            </div>
+                            <ng-template #elseBlock>
+                                <div class="product-price">${{minPrice.toFixed(2)}}&ndash;${{maxPrice.toFixed(2)}}</div>
+                            </ng-template>
+                        </ng-template>
+                    </ng-template> -->
+
+                    <!-- <div class="product-content">
+                        <p>{{ product.name }}</p>
+                    </div> -->
+                    <div class="price-container">
+        
+                        <span class="ratings-text1"> <i class="fa-solid fa-indian-rupee-sign"></i> {{ product.variants[0].price }}</span>
+                    </div>
+
+                    <div *ngIf="product.variants.length > 0">
+                        
+
+                        <div class="details-filter-row details-row-size">
+                            <label for="size">Size:</label>
+                            <div class="select-custom">
+                              
+                                <select name="size" id="size" class="form-control" (change)="updateVarient($event)">
+                                    <option value="" >Select a size</option>
+                                    
+                                    <option  *ngFor="let variant of product.variants;" value="{{variant.id}}">{{variant.name}}</option>
+                                        
+                                </select>
+                            </div>
+                
+                            <!-- <a href="javascript:;" class="size-guide mr-4"><i class="icon-th-list"></i>size guide</a>
+                            <a href="javascript:;" (click)="clearSelection()"
+                                *ngIf="selectedVariant.color || selectedVariant.size != ''">clear</a> -->
+                        </div>
+                    </div>
+
+                    <!-- <div class="variation-price" style="display: none;">
+                        <div class="product-price">
+                            ${{ selectedVariant.price ? selectedVariant.price.toFixed( 2 ) : 0 }}
+                        </div>
+                    </div> -->
+
+                    <div class="details-filter-row details-row-size">
+                        <label for="qty">Qty:</label>
+                        <molla-quantity-input [max]="product.stock" (changeQty)="onChangeQty( $event )" [value]="qty">
+                        </molla-quantity-input>
+                    </div>
+
+                    <div class="product-details-action">
+                        <a  href="javascript:;" class="btn-product btn-cart"
+                            [class.btn-disabled]="!( product.variants.length > 0 )"
+                            (click)="addCart( $event, 0 )"><span>add to cart</span></a>
+                
+                        
+                
+                
+                        <!-- <div class="details-action-wrapper">
+                            <a href="javascript:;" class="btn-product btn-wishlist" [class.added-to-wishlist]="isInWishlist()"
+                                (click)="addToWishlist($event)">
+                                <span>{{ isInWishlist() ? 'Go' : 'Add' }} to Wishlist</span>
+                            </a>
+                        </div> -->
+                    </div>
+
+                    <div class="product-details-footer">
+                        <div class="product-cat w-100 text-truncate">
+                            <span>Category:</span>
+                            <!-- <span *ngFor="let cat of product.category; let i =index">
+                                <a [routerLink]="['/shop/sidebar/list']" (click)="closeQuickView()"
+                                    [queryParams]="{category: cat.slug}">{{ cat.name }}</a>{{ i < product.category.length - 1 ? ',' : '' }}</span> -->
+                        </div>
+
+                        <div class="social-icons social-icons-sm">
+                            <share-buttons theme="circles-dark"
+                            [include]="['copy', 'facebook', 'telegram', 'twitter', 'whatsapp']"
+                            [showIcon]="true"
+                            [showText]="false"
+                            url={{this.liveurl}}
+                            description="Nutrivillage Social Media"
+                            twitterAccount="Nutrivillage"
+                            class="">
+                          </share-buttons>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

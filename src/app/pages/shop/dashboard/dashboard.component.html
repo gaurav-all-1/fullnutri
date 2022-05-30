@@ -1,0 +1,449 @@
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        <div class="container">
+            <h1 class="page-title">My Account<span>Shop</span></h1>
+        </div>
+    </div>
+    <nav class="breadcrumb-nav mb-3">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a routerLink="/">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    Shop
+                </li>
+                <li class="breadcrumb-item active">My Account</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- <div class="page-content">
+        <div class="dashboard">
+            <div class="container">
+                <div class="row">
+                    <aside class="col-md-4 col-lg-3">
+                        <ul class="nav nav-dashboard flex-column mb-3 mb-md-0" role="tablist" tabClick>
+                        
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:;" role="tab"
+                                    (click)="nav.select('tab-1')">Orders</a>
+                            </li>
+                       
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:;" role="tab"
+                                    (click)="nav.select('tab-2')">Change Password</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:;" role="tab" (click)="nav.select('tab-3')">Account
+                                    Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" (click)="logOut()" routerLink="/">Sign Out</a>
+                            </li>
+                        </ul>
+                    </aside>
+
+                    <div class="col-md-8 col-lg-9">
+                        <div class="tab-content">
+                            <ul ngbNav #nav="ngbNav">
+                                
+
+                                <li [ngbNavItem]="'tab-1'">
+                                    <ng-template ngbNavContent>
+                                        <div class="row row1">
+                                            <div class="col-2">
+                                                <div class="box-img">
+                                                    <img src="assets/images/nutri-logo-update.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="box-data">
+                                                    <p>Product Name</p>
+                                                    <p>Varient</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="box-data">
+                                                    <p>Quantity</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="box-data">
+                                                    <p>Price</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="box-data">
+                                                    <p>Payment method</p>
+                                                </div>
+                                            </div>
+                                            <span class="status">Status</span>
+                                        </div>
+                                    </ng-template>
+                                </li>
+
+                                <li [ngbNavItem]="'tab-2'">
+                                    <ng-template ngbNavContent>
+                                        <div class="demo-tab-content">
+                                            <div class="col-lg-12 align-items-center justify-content-center">
+                                            
+                                             <form action="">
+                                                 <div class="col-lg-8">
+                                                     <div class="form-group"  [formGroup]="changePassword">
+                                                         <label for="">Old Password:</label>
+                                                         <input type="text" placeholder="Enter Old password" class="form-control" formControlName = "olderpass">
+                                                     </div>
+                                                     <div class="form-group">
+                                                        <label for="">New  Password:</label>
+                                                        <input type="text" placeholder="Enter new password" class="form-control" formControlName = "newpass">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="">Confirm Password:</label>
+                                                        <input type="text" placeholder="Enter confirm password" class="form-control" formControlName = "confirmpass">
+                                                    </div>
+                                                   
+                                                 </div>
+                                             </form>
+                                            </div>
+                                         </div>
+                                    </ng-template>
+                                </li>
+
+                                <li [ngbNavItem]="'tab-3'">
+                                    <ng-template ngbNavContent>
+                                        <div class="demo1-tab-content">
+                                            <div class="row">
+                                            
+                      
+                                              <form action="" [formGroup]="userForm" >
+                                                  <div class="col-lg-9">
+                                                      <div class="col-lg-12">
+                                                          <div class="alert alert-danger" *ngIf = "message!='' && error == true" role="alert">{{message}}</div>
+                                                          <div class=" alert alert-success" *ngIf = "message!='' && error != true" role="alert">{{message}}</div>
+                                                      </div>
+                                                      <div class="row">
+                      
+                                                          <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                  <label>First Name</label>
+                                                                  <input class="form-control" placeholder="First Name" formControlName = "firstname">
+                                                              </div>
+                                                          </div>
+                      
+                                                          <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                  <label>Last Name</label>
+                                                                  <input class="form-control" placeholder="Last Name" formControlName = "lastname">
+                                                              </div>
+                                                          </div>
+                      
+                                                          <div class="col-md-4">
+                                                              <div class="form-group">
+                                                                  <label>Mobile</label>
+                                                                  <input class="form-control" placeholder="Mobile" formControlName = "mobile">
+                                                              </div>
+                                                          </div>
+                      
+                                                          <div class="col-md-4">
+                                                              <div class="form-group">
+                                                                  <label>Email</label>
+                                                                  <input class="form-control" placeholder="Email" formControlName = "email">
+                                                              </div>
+                                                          </div>
+                      
+                                                          <div class="col-md-4">
+                                                              <div class="form-group">
+                                                                  <label>Country</label>
+                                                                  <input class="form-control" placeholder="Country" formControlName = "country">
+                                                              </div>
+                                                          </div>
+                      
+                                                          <div class="col-md-4">
+                                                              <div class="form-group">
+                                                                  <label>State</label>
+                                                                  <input class="form-control" placeholder="State" formControlName = "state">
+                                                              </div>
+                                                          </div>
+                      
+                                                          <div class="col-md-4">
+                                                              <div class="form-group">
+                                                                  <label>City</label>
+                                                                  <input class="form-control" placeholder="City" formControlName = "city">
+                                                              </div>
+                                                          </div>
+                      
+                                                          <div class="col-md-4">
+                                                              <div class="form-group">
+                                                                  <label>Pin Code</label>
+                                                                  <input class="form-control" placeholder="Pin" formControlName = "pin">
+                                                              </div>
+                                                          </div>
+                      
+                      
+                                                          <div class="col-md-8">
+                                                              <div class="form-group">
+                                                                  <label>Address</label>
+                                                                  <textarea class="form-control" placeholder="Enter address here" formControlName = "add"></textarea>
+                                                              </div>
+                                                          </div>
+                      
+                                                          <div class="col-md-4">
+                                                              <div class="form-group">
+                                                               <button class="btn btn-primary" style="width: 100%; margin-top: 50px;;" (click)="onSave()">Save Details</button>
+                                                              </div>
+                                                          </div>
+                                                      
+                                                      </div>                                      
+                                                  </div>
+                                              </form>
+                                           </div>
+                                        </div>
+                                    </ng-template>
+                                </li>
+
+                           
+                            </ul>
+                            <div [ngbNavOutlet]="nav"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="page-content">
+        <div class="dashboard">
+            <div class="container">
+                <div class="row">
+                    <aside class="col-md-4 col-lg-3">
+                        <ul class="nav nav-dashboard flex-column mb-3 mb-md-0" role="tablist" tabClick>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="javascript:;" role="tab"
+                                    (click)="nav.select('tab-1')">Orders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:;" role="tab"
+                                    (click)="nav.select('tab-2')">Password Change</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:;" role="tab"
+                                    (click)="nav.select('tab-3')">Account
+                                    Details</a>
+                            </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="javascript:;" role="tab"
+                                    (click)="nav.select('tab-4')">Adresses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:;" role="tab" (click)="nav.select('tab-5')">Account
+                                    Details</a>
+                            </li> -->
+                            <li class="nav-item">
+                                <a class="nav-link" (click)="logOut()" routerLink="/">Sign Out</a>
+                            </li>
+                        </ul>
+                    </aside>
+
+                    <div class="col-md-8 col-lg-9">
+                        <div class="tab-content">
+                            <ul ngbNav #nav="ngbNav">
+                                <li [ngbNavItem]="'tab-1'">
+                                    <ng-template ngbNavContent>
+                                      <div *ngIf="AllOrder.length == 0" class="row">
+                                          <div class="col-12">
+                                              <div>
+                                                  <h1>No Orders</h1>
+                                              </div>
+                                          </div>
+                                      </div>
+                                        <div *ngIf="AllOrder.length !== 0" class="row">
+                                            <div class="col-lg-2 col-2">
+                                                <p>Order No</p>
+                                            </div>
+                                            <!-- <div class="col-lg-2 col-2">
+                                                <p>Payment Method</p>
+                                            </div> -->
+                                            <div class="col-lg-2 col-2">
+                                                <p>Price</p>
+                                            </div>
+                                            <div class="col-lg-2 col-2">
+                                                <p>Status</p>
+                                            </div>
+                                            <div class="col-lg-2 col-2">
+                                                <p>Date</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                       
+                                        <div class="row order-list" *ngFor="let data of AllOrder">
+                                            
+                                            <div class="col-lg-2 col-2">
+                                                <p>{{data.orderNo}}</p>
+                                            </div>
+                                            <!-- <div class="col-lg-2 col-2">
+                                                <p>{{data.paymentMethod}}</p>
+                                            </div> -->
+                                            <div class="col-lg-2 col-2">
+                                                <p class="order-amount"><i class="fa-solid fa-indian-rupee-sign"></i>{{data.amount}}</p>
+                                            </div>
+                                            <div class="col-lg-2 col-2">
+                                                <p>{{data.status}}</p>
+                                            </div>
+                                        
+                                            <div class="col-lg-2 col-2">
+                                                <p>{{data.createdAt | date:"dd/MM/yy" }}</p>
+                                            </div>
+
+                                            <div class="col-lg-2 col-2  order_cancel">
+                                                <a class="btn" [routerLink]="['/shop/orderdetail/'+ data.id]">View order</a>
+                                              </div>
+                                            
+                                            <div *ngIf="data.status!='canceled'" class="col-lg-2 col-2 order_cancel">
+                                              <button class="btn" (click)="cancelOrder(data.id)">Cancel order</button>
+                                            </div>
+                                        
+                                        
+                                        </div>  
+                                       
+                                        <hr>
+                                    </ng-template>
+                                </li>
+
+                                <li [ngbNavItem]="'tab-2'">
+                                    <ng-template ngbNavContent>
+                                       <div class="row align-items-center justify-content-center">
+                                           <div class="col-lg-12">
+                                               <div class="box">
+                                                <form action="" [formGroup]="changePassword">
+                                                    <div class="col-lg-12">
+                                                        <div class="alert alert-danger" *ngIf = "message1!='' && error1 == true" role="alert">{{message1}}</div>
+                                                        <div class=" alert alert-success" *ngIf = "message1!='' && error1 != true" role="alert">{{message1}}</div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group"  >
+                                                            <label for="">Old Password:</label>
+                                                            <input type="password" placeholder="Enter Old password" class="form-control" formControlName = "olderpass">
+                                                        </div>
+                                                        <div class="form-group">
+                                                           <label for="">New  Password:</label>
+                                                           <input type="password" placeholder="Enter new password" class="form-control" formControlName = "newpass">
+                                                       </div>
+                                                       <div class="form-group">
+                                                           <label for="">Confirm Password:</label>
+                                                           <input type="password" placeholder="Enter confirm password" class="form-control" formControlName = "confirmpass">
+                                                       </div>
+                                                       <div class="text-center">
+                                                           <button class="btn btn-primary" (click)="onchangepass()">Change Password</button>
+                                                       </div>
+                                                      
+                                                    </div>
+                                                </form>
+                                               </div>
+                                           </div>
+                                       </div>
+                                    </ng-template>
+                                </li>
+
+                                <li [ngbNavItem]="'tab-3'">     
+                                    <ng-template ngbNavContent>
+                                        <div class="demo1-tab-content">
+                                            <div class="row">
+                                            
+                      
+                                              <form action="" [formGroup]="userForm" >
+                                                  <div class="col-lg-9">
+                                                      <div class="col-lg-12">
+                                                          <div class="alert alert-danger" *ngIf = "message!='' && error == true" role="alert">{{message}}</div>
+                                                          <div class=" alert alert-success" *ngIf = "message!='' && error != true" role="alert">{{message}}</div>
+                                                      </div>
+                                                      <div class="row">
+                      
+                                                          <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                  <label>First Name</label>
+                                                                  <input class="form-control" formControlName = "firstName">
+                                                              </div>
+                                                          </div>
+                      
+                                                          <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                  <label>Last Name</label>
+                                                                  <input class="form-control"  formControlName = "lastName">
+                                                              </div>
+                                                          </div>
+                      
+                                                          <div class="col-lg-12 col-md-4">
+                                                              <div class="form-group">
+                                                                  <label>Mobile</label>
+                                                                  <input class="form-control"  formControlName = "phone">
+                                                              </div>
+                                                          </div>
+                      
+                                                          <div class="col-lg-12 col-md-4">
+                                                              <div class="form-group">
+                                                                  <label>Email</label>
+                                                                  <input class="form-control"  formControlName = "email">
+                                                              </div>
+                                                          </div>
+                      
+                                                          <div class="col-lg-12 col-md-4">
+                                                              <div class="form-group">
+                                                                  <label>Country</label>
+                                                                  <input class="form-control"  formControlName = "country">
+                                                              </div>
+                                                          </div>
+                      
+                                                          <div class=" col-lg-12 col-md-4">
+                                                              <div class="form-group">
+                                                                  <label>State</label>
+                                                                  <input class="form-control"  formControlName = "state">
+                                                              </div>
+                                                          </div>
+                      
+                                                          <div class="col-lg-12 col-md-4">
+                                                              <div class="form-group">
+                                                                  <label>City</label>
+                                                                  <input class="form-control"  formControlName = "city">
+                                                              </div>
+                                                          </div>
+                      
+                                                          <div class="col-lg-12 col-md-4">
+                                                              <div class="form-group">
+                                                                  <label>Pin Code</label>
+                                                                  <input class="form-control"  formControlName = "pin">
+                                                              </div>
+                                                          </div>
+                      
+                      
+                                                          <div class=" col-lg-12  col-md-8">
+                                                              <div class="form-group">
+                                                                  <label>Address</label>
+                                                                  <textarea class="form-control"  formControlName = "address"></textarea>
+                                                              </div>
+                                                          </div>
+                      
+                                                          <div class=" col-lg-12  col-md-4">
+                                                              <div class="form-group">
+                                                               <button class="btn btn-primary" style="width: 100%; margin-top: 50px;;" (click)="onSave()">Save Details</button>
+                                                              </div>
+                                                          </div>
+                                                      
+                                                      </div>                                      
+                                                  </div>
+                                              </form>
+                                           </div>
+                                        </div>
+                                    </ng-template>
+                                </li>
+
+                               
+                            </ul>
+                            <div [ngbNavOutlet]="nav"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>

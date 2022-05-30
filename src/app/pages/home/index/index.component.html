@@ -1,0 +1,344 @@
+<main class="main home-page skeleton-body">
+    <div class="intro-slider-container">
+        <owl-carousel carouselClasses="owl-simple owl-light owl-nav-inside slider-container-1" [options]="introSlider">
+            <!-- <div class="intro-slide intro-slide1"
+                style="background-image: url(assets/images/new_slider_nutri_village.jpg); background-color: #edf1f0;">
+                
+            </div> -->
+            <div class="intro-slide intro-slide2 slide-image"
+                style="background-image: url(assets/images/slider_nutri_banner_final1.jpg); background-color: #edf1f0;">
+                <!-- <div class="container intro-content" contentAnim aniName="fadeInUpShorter">
+                    <div class="text-left">
+                        <h3 class="intro-subtitle">Bedroom Furniture</h3>
+                        <h1 class="intro-title text-secondary-dark font-weight-normal">Find Comfort<br>That Suits You.
+                        </h1>
+
+                        <a routerLink="/shop/sidebar/list" class="btn btn-outline-dark">
+                            <span>Shop Now</span>
+                            <i class="icon-long-arrow-right"></i>
+                        </a>
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="intro-slide intro-slide3"
+                style="background-image: url(assets/images/slider_nutri_banner_final2.jpg); background-color: #edf1f0;">
+            
+            </div>
+        </owl-carousel>
+    </div>
+
+    <!-- <div>Some tags before</div>
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide>Slide 1</ng-template>  
+    <ng-template carouselSlide>Slide 2</ng-template>  
+    <ng-template carouselSlide>Slide 3</ng-template>  
+    <ng-template carouselSlide>Slide 3</ng-template>
+  </owl-carousel-o>
+  <div>Some tags after</div> -->
+
+  <div>
+      <div class="container">
+        <div class="top-cat mt-2">
+            <h1>Top Category</h1>
+        </div>
+        <owl-carousel-o [options]="customOptions" class="side-up">
+            
+            <ng-container *ngFor="let data of categoryList" >
+              <ng-template carouselSlide [id]="data.id">
+                  <div class="div_img">
+                    <a [routerLink]="['shop/sidebar/list/']" [queryParams]="{category: data.id,'page':1}"><img src="{{data.image}}" alt=""></a>
+                  </div>
+                
+                <a [routerLink]="['shop/sidebar/list/']" [queryParams]="{category: data.id,'page':1}">
+                    <p class="data_name">{{data.name}}</p>
+                </a>
+              </ng-template>
+            </ng-container>
+        
+          </owl-carousel-o>
+      </div>
+  </div>
+ 
+  
+
+    <!-- <owl-carousel carouselClasses="brands-border owl-simple" [options]="brandSlider" *ngFor="let data of categoryList">
+        <a href="javascript:;" class="brand" >
+            <img src={{data.image}} alt="Brand Name" width="101" height="34">
+            <h1>{{data.name}}</h1>
+        </a>
+
+        <a href="javascript:;" class="brand">
+            <img src="assets/images/brands/2.png" alt="Brand Name" width="101" height="34">
+        </a>
+
+        <a href="javascript:;" class="brand">
+            <img src="assets/images/brands/3.png" alt="Brand Name" width="101" height="34">
+        </a>
+
+        <a href="javascript:;" class="brand">
+            <img src="assets/images/brands/4.png" alt="Brand Name" width="101" height="34">
+        </a>
+
+        <a href="javascript:;" class="brand">
+            <img src="assets/images/brands/5.png" alt="Brand Name" width="101" height="34">
+        </a>
+
+        <a href="javascript:;" class="brand">
+            <img src="assets/images/brands/6.png" alt="Brand Name" width="101" height="34">
+        </a>
+
+        <a href="javascript:;" class="brand">
+            <img src="assets/images/brands/7.png" alt="Brand Name" width="101" height="34">
+        </a>
+    </owl-carousel> -->
+
+    <div class="mb-3 mb-lg-5"></div>
+
+    <!-- <div _ngcontent-ora-c58="" contentanim="" aniname="fadeInUpShorter" class="cat-section mt-4 mb-3"><div _ngcontent-ora-c58="" class="row"><div _ngcontent-ora-c58="" class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-8col"><div _ngcontent-ora-c58="" class="cat bg-white pt-1 mb-2"><div _ngcontent-ora-c58="" class="cat-image"><a _ngcontent-ora-c58="" routerlink="/shop/sidebar/list" href="/angular/molla/demo28/shop/sidebar/list?category=meat"><molla-image _ngcontent-ora-c58="" src="assets/images/home/categories/1.jpg" width="137" height="137" fixedpt="137px" _nghost-ora-c34="" style="padding-top: 137px;"><img _ngcontent-ora-c34="" alt="banner" src="assets/images/home/categories/1.jpg" class="  ng-lazyloaded"></molla-image></a></div><div _ngcontent-ora-c58="" class="cat-content text-center"><a _ngcontent-ora-c58="" routerlink="/shop/sidebar/list" class="cat-title" href="/angular/molla/demo28/shop/sidebar/list?category=meat">Meat</a><h4 _ngcontent-ora-c58="" class="cat-count letter-spacing-normal d-block font-weight-light">1 Product</h4></div></div></div><div _ngcontent-ora-c58="" class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-8col"><div _ngcontent-ora-c58="" class="cat bg-white pt-1 mb-2"><div _ngcontent-ora-c58="" class="cat-image"><a _ngcontent-ora-c58="" routerlink="/shop/sidebar/list" href="/angular/molla/demo28/shop/sidebar/list?category=fruit"><molla-image _ngcontent-ora-c58="" src="assets/images/home/categories/2.jpg" width="137" height="137" fixedpt="137px" _nghost-ora-c34="" style="padding-top: 137px;"><img _ngcontent-ora-c34="" alt="banner" src="assets/images/home/categories/2.jpg" class="  ng-lazyloaded"></molla-image></a></div><div _ngcontent-ora-c58="" class="cat-content text-center"><a _ngcontent-ora-c58="" routerlink="/shop/sidebar/list" class="cat-title" href="/angular/molla/demo28/shop/sidebar/list?category=fruit">Fruits</a><h4 _ngcontent-ora-c58="" class="cat-count letter-spacing-normal d-block font-weight-light">1 Product</h4></div></div></div><div _ngcontent-ora-c58="" class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-8col"><div _ngcontent-ora-c58="" class="cat bg-white pt-1 mb-2"><div _ngcontent-ora-c58="" class="cat-image"><a _ngcontent-ora-c58="" routerlink="/shop/sidebar/list" href="/angular/molla/demo28/shop/sidebar/list?category=bakery"><molla-image _ngcontent-ora-c58="" src="assets/images/home/categories/3.jpg" width="137" height="137" fixedpt="137px" _nghost-ora-c34="" style="padding-top: 137px;"><img _ngcontent-ora-c34="" alt="banner" src="assets/images/home/categories/3.jpg" class="  ng-lazyloaded"></molla-image></a></div><div _ngcontent-ora-c58="" class="cat-content text-center"><a _ngcontent-ora-c58="" routerlink="/shop/sidebar/list" class="cat-title" href="/angular/molla/demo28/shop/sidebar/list?category=bakery">Bakery</a><h4 _ngcontent-ora-c58="" class="cat-count letter-spacing-normal d-block font-weight-light">2 Products</h4></div></div></div><div _ngcontent-ora-c58="" class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-8col"><div _ngcontent-ora-c58="" class="cat bg-white pt-1 mb-2"><div _ngcontent-ora-c58="" class="cat-image"><a _ngcontent-ora-c58="" routerlink="/shop/sidebar/list" href="/angular/molla/demo28/shop/sidebar/list?category=vegetable"><molla-image _ngcontent-ora-c58="" src="assets/images/home/categories/4.jpg" width="137" height="137" fixedpt="137px" _nghost-ora-c34="" style="padding-top: 137px;"><img _ngcontent-ora-c34="" alt="banner" src="assets/images/home/categories/4.jpg" class="  ng-lazyloaded"></molla-image></a></div><div _ngcontent-ora-c58="" class="cat-content text-center"><a _ngcontent-ora-c58="" routerlink="/shop/sidebar/list" class="cat-title" href="/angular/molla/demo28/shop/sidebar/list?category=vegetable">Vegetable</a><h4 _ngcontent-ora-c58="" class="cat-count letter-spacing-normal d-block font-weight-light">5 Products</h4></div></div></div><div _ngcontent-ora-c58="" class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-8col"><div _ngcontent-ora-c58="" class="cat bg-white pt-1 mb-2"><div _ngcontent-ora-c58="" class="cat-image"><a _ngcontent-ora-c58="" routerlink="/shop/sidebar/list" href="/angular/molla/demo28/shop/sidebar/list?category=seafood"><molla-image _ngcontent-ora-c58="" src="assets/images/home/categories/5.jpg" width="137" height="137" fixedpt="137px" _nghost-ora-c34="" style="padding-top: 137px;"><img _ngcontent-ora-c34="" alt="banner" src="assets/images/home/categories/5.jpg" class="  ng-lazyloaded"></molla-image></a></div><div _ngcontent-ora-c58="" class="cat-content text-center"><a _ngcontent-ora-c58="" routerlink="/shop/sidebar/list" class="cat-title" href="/angular/molla/demo28/shop/sidebar/list?category=seafood">Seafood</a><h4 _ngcontent-ora-c58="" class="cat-count letter-spacing-normal d-block font-weight-light">3 Products</h4></div></div></div><div _ngcontent-ora-c58="" class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-8col"><div _ngcontent-ora-c58="" class="cat bg-white pt-1 mb-2"><div _ngcontent-ora-c58="" class="cat-image"><a _ngcontent-ora-c58="" routerlink="/shop/sidebar/list" href="/angular/molla/demo28/shop/sidebar/list?category=drinks"><molla-image _ngcontent-ora-c58="" src="assets/images/home/categories/6.jpg" width="137" height="137" fixedpt="137px" _nghost-ora-c34="" style="padding-top: 137px;"><img _ngcontent-ora-c34="" alt="banner" src="assets/images/home/categories/6.jpg" class="  ng-lazyloaded"></molla-image></a></div><div _ngcontent-ora-c58="" class="cat-content text-center"><a _ngcontent-ora-c58="" routerlink="/shop/sidebar/list" class="cat-title" href="/angular/molla/demo28/shop/sidebar/list?category=drinks">Drinks</a><h4 _ngcontent-ora-c58="" class="cat-count letter-spacing-normal d-block font-weight-light">1 Product</h4></div></div></div><div _ngcontent-ora-c58="" class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-8col"><div _ngcontent-ora-c58="" class="cat bg-white pt-1 mb-2"><div _ngcontent-ora-c58="" class="cat-image"><a _ngcontent-ora-c58="" routerlink="/shop/sidebar/list" href="/angular/molla/demo28/shop/sidebar/list?category=drinks"><molla-image _ngcontent-ora-c58="" src="assets/images/home/categories/7.jpg" width="137" height="137" fixedpt="137px" _nghost-ora-c34="" style="padding-top: 137px;"><img _ngcontent-ora-c34="" alt="banner" src="assets/images/home/categories/7.jpg" class="  ng-lazyloaded"></molla-image></a></div><div _ngcontent-ora-c58="" class="cat-content text-center"><a _ngcontent-ora-c58="" routerlink="/shop/sidebar/list" class="cat-title" href="/angular/molla/demo28/shop/sidebar/list?category=drinks">Dairy &amp; Cheese</a><h4 _ngcontent-ora-c58="" class="cat-count letter-spacing-normal d-block font-weight-light">1 Product</h4></div></div></div><div _ngcontent-ora-c58="" class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-8col"><div _ngcontent-ora-c58="" class="cat bg-white pt-1 mb-2"><div _ngcontent-ora-c58="" class="cat-image"><a _ngcontent-ora-c58="" routerlink="/shop/sidebar/list" href="/angular/molla/demo28/shop/sidebar/list?category=wine"><molla-image _ngcontent-ora-c58="" src="assets/images/home/categories/8.jpg" width="137" height="137" fixedpt="137px" _nghost-ora-c34="" style="padding-top: 137px;"><img _ngcontent-ora-c34="" alt="banner" src="assets/images/home/categories/8.jpg" class="  ng-lazyloaded"></molla-image></a></div><div _ngcontent-ora-c58="" class="cat-content text-center"><a _ngcontent-ora-c58="" routerlink="/shop/sidebar/list" class="cat-title" href="/angular/molla/demo28/shop/sidebar/list?category=wine">Wine</a><h4 _ngcontent-ora-c58="" class="cat-count letter-spacing-normal d-block font-weight-light">1 Product</h4></div></div></div></div></div> -->
+
+    <div class="banner-group" *ngIf="getoffer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-5" contentAnim aniName="fadeInRightShorter">
+                    <div class="banner banner-large shadow">
+                        <a [routerLink]="['/product/NutrivillageProducts/',getoffer[0].product.id]">
+                            <img src="../../../../assets/images/first_newOffer.jpg" alt="Banner" width="470" height="510"
+                                style="background-color: #fcf8e7;">
+                        </a>
+
+                        <div class="banner-content banner-content-top first_banner">
+                            
+
+                            <h3 class="banner-title text-secondary-dark">{{this.getoffer[0].product.name}}</h3>
+
+                            <div class="banner-text text-secondary-dark font-weight-normal">Love snacking? Get a flat Rs.{{this.getoffer[0].amount}} Off</div>
+
+                            <a  [routerLink]="['/product/NutrivillageProducts/',getoffer[0].product.id]" class="btn btn-outline-dark shop_now_new">Shop Now<i class="icon-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3" contentAnim>
+                    <div class="banner shadow">
+                        <a [routerLink]="['/product/NutrivillageProducts/',getoffer[1].product.id]">
+                            <img class="banner_sale_img" src="../../../../assets/images/offernutrifinal2.jpg" alt="Banner" width="290" height="510"
+                                style="background-color: #748787;">
+                        </a>
+
+                        <div class="banner-content banner-content-top">
+                            <!-- <h4 class="banner-subtitle  font-weight-normal onsale_get">On Sale</h4> -->
+
+                            <h3 class="banner-title">{{this.getoffer[1].product.name}}</h3>
+                            <div class="banner-text  font-weight-normal">Flat Rs.{{this.getoffer[1].amount}} Off</div>
+
+                            <a [routerLink]="['/product/NutrivillageProducts/',getoffer[1].product.id]" class="btn  btn-outline-dark">Shop Now<i
+                                    class="icon-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-lg-4" contentAnim ="fadeInaniNameLeftShorter">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-6">
+                            <div class="banner banner-sm shadow banner-size">
+                                <a [routerLink]="['/product/NutrivillageProducts/',getoffer[3].product.id]">
+                                    <img src="../../../../assets/images/offernutrifinal3.jpg" alt="Banner" width="370" height="245"
+                                        style="background-color: #ebf2df;">
+                                </a>
+
+                                <div class="banner-content">
+                                   
+
+                                    <h3 class="banner-title text-secondary-dark mb-0">{{this.getoffer[2].product.name}}</h3>
+
+                                    <div class="banner-text font-weight-normal text-secondary-dark">Up to Rs.{{this.getoffer[2].amount}} off
+                                    </div>
+                                    <a [routerLink]="['/product/NutrivillageProducts/',getoffer[3].product.id]"
+                                        class="btn btn-outline-dark btn-outline-dark">Shop Now<i
+                                            class="icon-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-6">
+                            <div class="banner banner-center shadow">
+                                <a [routerLink]="['/product/NutrivillageProducts/',getoffer[3].product.id]">
+                                    <img src="../../../../assets/images/offernutrifinal4.jpg" alt="Banner" width="370" height="245"
+                                        style="background-color: #f0f5f8;">
+                                </a>
+
+                                <div class="banner-content content-set pt-0">
+                                    <!-- <h4 class="banner-subtitle font-weight-normal">New Arrivals</h4> -->
+
+                                    <h3 class="banner-title text-secondary-dark">{{this.getoffer[3].product.name}}</h3>
+
+                                    <div class="banner-text font-weight-normal text-secondary-dark">Flat Rs.{{this.getoffer[3].amount}}% Off
+                                    </div>
+                                   
+                                    <a [routerLink]="['/product/NutrivillageProducts/',getoffer[3].product.id]" class="btn btn-outline-dark">Shop
+                                        Now<i class="icon-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- <molla-special-collection [products]="products" [loaded]="loaded"></molla-special-collection> -->
+
+    <div class="deal-container pt-5 pb-3" *ngIf="getoffer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-8" contentAnim aniName="fadeInRightShorter">
+                    <div class="banner deal-banner shadow">
+                        <div class="deal-content">
+                            <h4 class="font-weight-normal text-primary get_deal">Limited Quantities</h4>
+                            <h2 class="text-secondary-dark">Deal Of The Day</h2>
+                            <h3 class="banner-title">{{this.getoffer[4].product.name}}</h3>
+                            
+
+                           
+
+                            <div class="product-price">
+                                <span class="new-price banner-text font-weight-normal text-secondary-dark">Grab the bite @Flat Rs.{{this.getoffer[4].amount}} Off</span>
+                               
+                            </div>  
+
+                            
+
+                            <a [routerLink]="['/product/NutrivillageProducts/',getoffer[4].product.id]" class="btn  btn-outline-dark">Shop Now<i
+                                class="icon-long-arrow-right"></i></a>
+                            
+                        </div>
+                        <figure>
+                            <img src="../../../../assets/images/mid_newOffer.jpg" alt="Banner" width="423" height="558"
+                                style="background-color: #fff;" />
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4" contentAnim aniName="fadeInLeftShorter">
+                    <div class="banner shadow">
+                        <a [routerLink]="['/product/NutrivillageProducts/',getoffer[5].product.id]" class="h-100">
+                            <img src="../../../../assets/images/last_newOffer.jpg" alt="Banner" width="280" height="500"
+                                style="background-color: #131b34;" class="h-100" />
+                        </a>
+
+                        <div class="banner-content banner-content-top last_banner">
+                            <h4 class="banner-subtitle best_choice">The Best Choice</h4>
+                            <h3 class="banner-title">{{this.getoffer[5].product.name}}</h3>
+                            <div class="banner-text  font-weight-normal">Flat Rs.{{this.getoffer[5].amount}} Off</div>
+                            <a [routerLink]="['/product/NutrivillageProducts/',getoffer[5].product.id]" class="btn  btn-outline-dark">Shop Now<i
+                                    class="icon-long-arrow-right"></i></a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <molla-top-collection [products]="products | attrFilter : 'top'" [loaded]="loaded"></molla-top-collection> -->
+
+    <div class="container">
+        <hr>
+    </div>
+
+   <!-- ? <molla-blog-collection [posts]="posts" [loaded]="loaded"></molla-blog-collection> -->
+
+    <div class="icon-boxes-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3" contentAnim aniName="fadeInLeftShorter">
+                    <div class="icon-box icon-box-side">
+                        <span class="icon-box-icon text-dark">
+                            <i class="icon-rocket"></i>
+                        </span>
+                        <div class="icon-box-content">
+                            <h3 class="icon-box-title">Free Shipping</h3>
+                            <p>orders Rs. 50 or more</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3" contentAnim aniName="fadeInLeftShorter">
+                    <div class="icon-box icon-box-side">
+                        <span class="icon-box-icon text-dark">
+                            <i class="icon-rotate-left"></i>
+                        </span>
+
+                        <div class="icon-box-content">
+                            <h3 class="icon-box-title">Free Returns</h3>
+                            <p>within 30 days</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3" contentAnim aniName="fadeInRightShorter">
+                    <div class="icon-box icon-box-side">
+                        <span class="icon-box-icon text-dark">
+                            <i class="icon-info-circle"></i>
+                        </span>
+
+                        <div class="icon-box-content">
+                            <h3 class="icon-box-title">Get 20% Off 1 Item</h3>
+                            <p>When you sign up</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3" contentAnim aniName="fadeInRightShorter">
+                    <div class="icon-box icon-box-side">
+                        <span class="icon-box-icon text-dark">
+                            <i class="icon-life-ring"></i>
+                        </span>
+
+                        <div class="icon-box-content">
+                            <h3 class="icon-box-title">We Support</h3>
+                            <p>24/7 amazing services</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-newsletter bg-image" style="background-image: url(../../../../assets/images/email.jpg)">
+        <div class="container">
+            <div class="heading text-center" contentAnim aniName="blurIn">
+                <!-- <h3 class="title">Get The Latest Deals</h3> -->
+                <!-- <p class="title-desc">and receive <span>Rs. 20 coupon</span> for first shopping</p> -->
+            </div>
+
+            <div class="row">
+                <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+                    <form  [formGroup]="emailForm">
+                        <div class="input-group">
+                            <input type="email" class="form-control" formControlName ="email" placeholder="Enter your Email Address"
+                                aria-label="Email Adress" aria-describedby="newsletter-btn" name="to_mail" required>
+                                
+                            <div class="input-group-append email-button">
+                                    <button type="button" class="btn btn-white" (click)="onSave()" id="newsletter-btn" [disabled]="!emailForm.valid"> <i [class.fa-refresh]="loader" class="fa fa-refresh fa-spin"></i> <span>Subscribe</span><i
+                                        class="icon-long-arrow-right"></i></button>
+                            </div>
+                        </div>
+
+                        <div *ngIf="emailForm.controls['email'].invalid && (emailForm.controls['email'].dirty || emailForm.controls['email'].touched)" class="alert text-danger">
+                            <div *ngIf="emailForm.controls['email'].errors.required">
+                            Please enter Email
+                          </div>
+                        </div> 
+                        <div *ngIf="emailForm.controls['email'].invalid && (emailForm.controls['email'].dirty || emailForm.controls['email'].touched)" class="alert text-danger">
+                            <div *ngIf="emailForm.controls['email'].errors.pattern">
+                            Please enter valid Email
+                          </div>
+                        </div>  
+                    </form>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</main>

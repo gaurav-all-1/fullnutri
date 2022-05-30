@@ -1,0 +1,45 @@
+.logo img {
+    width: 50%;
+}
+
+.account {
+    font-size: 2.8rem;
+    color: #333;
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.logout i {
+    font-size: 18px;
+}
+
+
+// .header-middle {
+//     background: #74ab26;
+// }
+// .header-bottom{
+//     background: #74ab26;
+// }
+// .account p {
+//     color: #fff;
+//     font-weight: 600;
+// }
+// .bottom {
+//     background: #fff;
+// }
+
+@media (max-width:767px) {
+    .icon i {
+        font-size: 22px;
+    }
+    .logo {
+        width: 100%;
+    }
+    .logo img {
+        width: 100%;
+    }
+}

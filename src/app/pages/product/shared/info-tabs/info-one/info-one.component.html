@@ -1,0 +1,127 @@
+<div class="product-details-tab" >
+    <ul ngbNav #nav="ngbNav" class="justify-content-center nav nav-pills">
+        <li ngbNavItem>
+            <a ngbNavLink>
+                Description
+            </a>
+            <ng-template ngbNavContent>
+                <div class="product-desc-content" >
+                    <h3>Product Information</h3>
+                    <p [innerHtml]="product.discription"></p>
+                </div>
+            </ng-template>
+        </li>
+        <li ngbNavItem>
+            <a ngbNavLink>
+                Additional information
+            </a>
+            <ng-template ngbNavContent>
+                
+                <div class="product-desc-content">
+                    <h3>Additional Information</h3>
+                    <p [innerHtml]="product.additional"></p>
+                </div>
+            </ng-template>
+        </li>
+        <li ngbNavItem>
+            <a ngbNavLink>
+                Shipping & Returns
+            </a>
+            <ng-template ngbNavContent>
+                <div class="product-desc-content">
+                    <h3>Delivery & returns</h3>
+                    <p>In accordance with Nutrivillage's goal of ensuring consumer satisfaction, this cancellation, return and refund Policy sets out our procedures and policies in accepting, product cancellations before the product is delivered to a user or/and product returns, once a product has been delivered to a user after purchase. Any return or cancellation of products is subject to the terms and conditions set forth in this Cancellation, Return, and Refund Policy.</p>
+                </div>
+            </ng-template>
+        </li>
+        <li ngbNavItem>
+            <a ngbNavLink>
+                Reviews
+            </a>
+            <ng-template ngbNavContent>
+                <div class="reviews">
+                    <h3>Reviews <span>({{this.printreview.length}})</span></h3>
+                    <div class="NEW" *ngIf="loader">
+                        <img src="../../../../../../assets/images/Comp-2.gif" alt="">
+                    </div>
+                    <div *ngFor="let data of printreview"  class="review">
+                      
+                        <div class="row no-gutters">
+                            <div class="col-4">
+                                <h4><a href="javascript:;"></a>{{data.user.email}}</h4>
+                                <div class="ratings-container">
+                                    <div class="ratings">
+                                        <div class="ratings-val" [style.width]=" 20*data.rating + '%'"></div>
+                                        <span class="tooltip-text">{{data.rating}}</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-8">
+                                
+
+                                <div class="review-content">
+                                    <p>{{data.comment}}</p>
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+                <div class="reply">
+                    <div class="title-wrapper text-left">
+                        <h3 class="title title-simple text-left text-normal">Add a Review
+                        </h3>
+                        <p>Your email address will not be published. Required fields are
+                            marked *</p>
+                    </div>
+                    <form [formGroup]="reviewform">
+                    <div class="rating-form">
+                        <label for="rating" class="text-dark">Your rating * </label>
+                        <span class="rating-stars selected">
+                            <a [class]="'star-' + num " href="javascript:;" (click)="setRating($event,num)"
+                                *ngFor="let num of [1,2,3,4,5]">{{ num }}</a>
+                        </span>
+
+                    </div>
+
+                    <div class="col-6">
+                        <div *ngIf="message!='' && error==true" class="alert alert-danger w-100" role="alert">
+                            {{message}}
+                        </div>
+        
+                        <div *ngIf="message!='' && error!=true" class="alert alert-success w-100" role="alert">
+                            {{message}}
+                        </div>
+        
+                    </div>
+                    
+                        <textarea id="reply-message" formControlName="comment" cols="30" rows="6" class="form-control mb-2"
+                            placeholder="Comment *" required></textarea>
+                            <div *ngIf="(reviewform.controls.comment.invalid &&  reviewform.controls.comment.touched) || reviewform.controls.comment.dirty">
+                                <small *ngIf="reviewform.controls.comment.errors?.required" class="text-danger">Message is required</small>
+                                <!-- <small *ngIf="reviewform.controls.comment.errors?.pattern" class="text-danger">Please provide a valid message</small> -->
+                              </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" formControlName="user" id="reply-name" name="reply-name"
+                                    placeholder="Name *" required/>
+                                    <div *ngIf="(reviewform.controls.user.invalid &&  reviewform.controls.user.touched) || reviewform.controls.user.dirty">
+                                        <small *ngIf="reviewform.controls.user.errors?.required" class="text-danger">Name is required</small>
+                                        <small *ngIf="reviewform.controls.user.errors?.pattern" class="text-danger">Please provide a valid Name</small>
+                                      </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <button type="button" (click)="onContinue()" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </ng-template>
+        </li>
+    </ul>
+    <div [ngbNavOutlet]="nav"></div>
+</div>

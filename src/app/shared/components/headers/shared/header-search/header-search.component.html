@@ -1,0 +1,35 @@
+<div class="header-search header-search-extended header-search-visible header-search-no-radius d-none d-lg-block">
+    <a href="#" class="search-toggle" role="button">
+        <i class="icon-search"></i>
+    </a>
+    <form action="#" method="get" (click)="showSearchForm($event)" (submit)="submitSearchForm($event)">
+        <div class="header-search-wrapper search-wrapper-wide">
+            <label for="q" class="sr-only">Search</label>
+            <input type="text" class="form-control" name="searchTerm" id="searchTerm" placeholder="Search product ..."
+                required (input)="searchProducts($event)" />
+            <button class="btn btn-primary" type="submit">
+                <span class="sr-only">Search</span>
+                <i class="icon-search"></i>
+            </button>
+        </div>
+
+        <div class="live-search-list" *ngIf="searchTerm.length > 2">
+            <div class="autocomplete-suggestions" *ngIf="suggestions.length > 0" (click)="goProductPage()">
+                <a [routerLink]="'/product/NutrivillageProducts/' + product.id" class="autocomplete-suggestion"
+                    *ngFor="let product of suggestions">
+                    <figure class="mb-0 mr-3" style="width: 40px; height: 40px;">
+                        <molla-image [src]="product['image']" width="40" height="40" alt="Product"
+                            class="bg-transparent">
+                        </molla-image>
+                    </figure>
+
+                    <div class="search-name" [innerHTML]="matchEmphasize(product.name) | safeContent"></div>
+                    <!-- <span class="search-price">
+                        <div class="product-price mb-0">
+                            Rs. {{ product.defaultPrice }}</div>
+                    </span> -->
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

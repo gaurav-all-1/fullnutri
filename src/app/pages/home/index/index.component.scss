@@ -1,0 +1,210 @@
+::ng-deep .brand {
+    border: none !important;
+}
+::ng-deep .brands-border {
+    margin-top: 35px !important;
+}
+::ng-deep .side-up {
+    padding: 5% !important;
+}
+.deal-container .product-price {
+    margin-bottom: 0.4rem;
+}
+.home-page .banner-title {
+    margin-bottom: 0.4rem;
+}
+.deal-container h2 {
+    margin-bottom: 0.6rem;
+}
+.deal-container h4 {
+    margin-bottom: 0.5rem;
+}
+.div_img {
+    width: 39%;
+    margin: 0 auto;
+    // border: 1px solid gray;
+    border-radius: 50%;
+    padding: 6%;
+}
+.div_img:hover{
+    border: 1px solid #74ab26;
+}
+.div_img img {
+    width: 100%;
+}
+.data_name {
+    text-align: center;
+    // margin-top: 2%;
+}
+.data_name:hover {
+   color: #74ab26;
+}
+::ng-deep .owl-nav {
+    display: block !important;
+}
+::ng-deep .owl-prev::before{
+    content: "\f060";
+    font-family: 'FontAwesome';
+    position: absolute;
+    top: 7px;
+    right: 6px;
+}
+::ng-deep .owl-next::before{
+    content: "\f061";
+    font-family: 'FontAwesome';
+    position: absolute;
+    top: 7px;
+    right: 6px;
+}
+.top-cat {
+    text-align: center;
+}
+::ng-deep .icon-angle-left {
+    display: none !important;
+}
+
+::ng-deep .icon-angle-right {
+    display: none !important;
+}
+.title {
+    color: #000;
+}
+.title-desc {
+    color: #000;
+    font-weight: 800 !important;
+
+}
+.title-desc span {
+    color: #74ab26 !important;
+    font-weight: 800 !important;
+}
+::ng-deep .icon-boxes-container {
+    padding-bottom: 7.8rem !important;
+}
+::ng-deep .email-button .btn:hover {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+::ng-deep .email-button .btn {
+    background-color: #74ab26 !important;
+    color: #fff !important;
+}
+::ng-deep .deal-container .deal-banner {
+    padding: 0 !important;
+}
+::ng-deep .home-page .banner-sm .banner-content {
+    bottom: 50.2% !important    ;
+}
+::ng-deep .home-page .banner-content.banner-content-top {
+    left: 8.2% !important;
+}
+.home-page .banner-large .banner-content-top .btn-outline-dark {
+    min-width: 11rem;
+    padding: 1.5rem 3.08rem;
+    font-size: 1.5rem;
+}
+.deal-container img {
+    height: 100% !important;   
+}
+.deal-container figure {
+    width: 47% !important;
+}
+figure {
+    margin: 0 0 0rem !important;
+}
+.banner img {
+    height: 100% !important;
+}
+.banner>a {
+    height: 100% !important;
+}
+.home-page .banner {
+    height: 100% !important;
+}
+.banner-size {
+    padding-bottom: 16px;
+}
+.home-page .banner-text {
+    color: #a6c76c !important;
+}
+.content-set {
+    top: 80px !important;
+}
+.get_deal {
+    background: #a6c76c;
+    color: #fff !important;
+    width: 46%;
+    padding-left: 17px;
+    padding-right: 0px
+}
+.onsale_get {
+    color: #a6c76c !important;
+} 
+.home-page .banner-content.banner-content-top {
+    top: 4.4%;
+}
+.best_choice {
+    color: #a6c76c !important;
+
+}
+.home-page .banner-title {
+    font-size: 15px !important;
+    font-weight: 400 !important;
+}
+.home-page .banner-text {
+    font-size: 26px !important;
+    font-weight: 500 !important;
+}
+.deal-container {
+    background-color: #a6c76c !important;
+}
+.deal-container .deal-content {
+    padding: 16.4rem 3rem 3.5rem !important;
+}
+
+@media (max-width:991px) {
+    .banner_sale_img {
+        max-height: 561px !important;
+    }
+    .intro-slide {
+        // background-position: 18% !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        min-height: 20rem;
+    }
+    .intro-slider-container {
+        min-height: 16rem !important;
+    }
+    .banner-group img {
+        max-height: 525px !important;
+    }
+    .home-page .banner-content.banner-content-top {
+        left: 26.2%!important;
+        // top: 1.4% !important;
+    }
+    .deal-content .btn-outline-dark {
+        margin-top: 237px !important;
+    }
+    .deal-container .banner {
+        height: 497px !important;
+    }
+    .deal-container figure {
+        top: 42% !important;
+    }
+    .deal-container .deal-content {
+        padding: 22px 3rem 3.5rem !important;
+    }
+    .last_banner {
+        top: 1.4% !important;
+    }
+    .first_banner {
+        top: -1.6% !important;
+    }
+    .banner{
+        padding-bottom: 12px !important;
+    }
+    .get_deal {
+        width: 100%;
+    }
+}
+

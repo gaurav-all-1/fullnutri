@@ -1,0 +1,105 @@
+<main class="main">
+    <molla-page-header title="Contact" subtitle="Us"></molla-page-header>
+    <nav class="breadcrumb-nav">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a routerLink="/">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Contact Us</li>
+            </ol>
+        </div>
+    </nav>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3">
+                    <div class="detail_box shadow">
+                      <div class="row">
+                          <div class="col-lg-3">
+                              <div>
+                                <h3>Email:</h3>
+                              </div>
+                          </div>
+                          <div class="col-lg-9">
+                              <div style="margin-top: 4px;">
+                                <p>info@nutrivillage.in</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-3">
+                            <div>
+                                <h3>Address:</h3>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div style="margin-top: 4px;">
+                                <p>VILLAGE JAKHOLI, Sonipat, Haryana-131023</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div>
+                                <h3>Phone:</h3>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div style="margin-top: 4px;">
+                                <p><a href="tel:9050516012">+91 90505 16012</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+              
+
+                <div class="col-lg-8">
+                    <div class="form_contact">
+                        <form [formGroup]="contactform">
+                            <div class="form-group">
+                              <label for="exampleFormControlInput1">Name</label>
+                              <input type="email" class="form-control" formControlName="name" id="exampleFormControlInput1" placeholder="Enter your name" required>
+                              <div *ngIf="(contactform.controls.name.invalid &&  contactform.controls.name.touched) || contactform.controls.name.dirty">
+                                <small *ngIf="contactform.controls.name.errors?.required" class="text-danger">Name is required</small>
+                                <small *ngIf="contactform.controls.name.errors?.pattern" class="text-danger">Please provide a valid name</small>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Email address</label>
+                                <input type="email" class="form-control" formControlName="email" id="exampleFormControlInput1" placeholder="name@example.com" required>
+                                <div *ngIf="(contactform.controls.email.invalid &&  contactform.controls.email.touched) || contactform.controls.email.dirty">
+                                    <small *ngIf="contactform.controls.email.errors?.required" class="text-danger">email is required</small>
+                                    <small *ngIf="contactform.controls.email.errors?.pattern" class="text-danger">Please provide a valid email</small>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleFormControlInput1">Phone no</label>
+                                <input type="email" class="form-control" formControlName="phone" id="exampleFormControlInput1" placeholder="Enter phone No" required>
+                                <div *ngIf="(contactform.controls.phone.invalid &&  contactform.controls.phone.touched) || contactform.controls.phone.dirty">
+                                    <small *ngIf="contactform.controls.phone.errors?.required" class="text-danger">phone is required</small>
+                                    <small *ngIf="contactform.controls.phone.errors?.pattern" class="text-danger">Please provide a valid phone no</small>
+                                  </div>
+                              </div>
+                            <div class="form-group">
+                              <label for="exampleFormControlTextarea1">Message</label>
+                              <textarea class="form-control" formControlName="message" id="exampleFormControlTextarea1" rows="3" required>
+                                <div *ngIf="(contactform.controls.message.invalid &&  contactform.controls.message.touched) || contactform.controls.message.dirty">
+                                    <small *ngIf="contactform.controls.message.errors?.required" class="text-danger">message is required</small>
+                                    <small *ngIf="contactform.controls.message.errors?.pattern" class="text-danger">Please provide a valid message</small>
+                                  </div>
+                              </textarea>
+                            </div>
+                            <button type="button" class="btn" (click)="onclick()" [disabled]="contactform.invalid">Submit</button>
+                          </form>  
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+
+</main>

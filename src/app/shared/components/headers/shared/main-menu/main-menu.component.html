@@ -1,0 +1,44 @@
+<nav class="main-nav">
+    <ul class="menu sf-arrows">
+        <li class="megamenu-container" [class.active]="current=='/'">
+            <a routerLink="/" class="sf-with-ul set-after">Home</a>
+        </li>
+        <li *ngFor="let list of categoryList" [class.active]="current.includes('/{{list}}')"> 
+            <a [routerLink]="['shop/sidebar/list/']" [queryParams]="{category: list.id,'page':1}" class="sf-with-ul set-after" >{{list.name}}</a>
+            <div class="megamenu megamenu-md">
+                <div class="row no-gutters"> 
+                    <div class="col-md-8">
+                        <div class="menu-col">
+                            <div class="row">
+                                <div class="col-md-6">                                                                      
+                                    <ul>
+                                        <li *ngFor="let product of productList[list.name]" [class.active]="current.includes('shop/sidebar/{{list}}')">
+                                            <a routerLink="/product/NutrivillageProducts/{{product.id}}">{{product.name}}</a>
+                                        </li>                                       
+                                    </ul>                                 
+                                </div>                       
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-4">
+                        <div class="banner banner-overlay">
+                            <a [routerLink]="['shop/sidebar/list/']" [queryParams]="{category: list.id,'page':1}" class="banner banner-menu sale-cat">
+                                <img src="{{list.image}}" alt="Banner" width="218" height="314" />
+                                   <div class="banner-content banner-content-top">
+                                    <div class="banner-title text-white">
+                                        Last
+                                        <br />Chance
+                                        <br />
+                                        <span>
+                                            <strong>Sale</strong>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </li>      
+    </ul>
+</nav>

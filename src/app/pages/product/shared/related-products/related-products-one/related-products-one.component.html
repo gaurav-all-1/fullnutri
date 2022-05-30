@@ -1,0 +1,24 @@
+<h2 *ngIf="bindId.length>1" class="title text-center mb-4">You May Also Like</h2>
+
+<div class="row" >
+   <!-- <div>
+       <img [class.img_loader]="loader" class="img_loader" src="../../../../../../assets/images/loader_new.gif" alt="">
+   </div> -->
+    <div class="col-lg-3" *ngFor="let data of bindId">
+            <molla-product-six [product]="data" ></molla-product-six>
+    </div>
+</div>
+
+
+
+<!-- <owl-carousel [carouselClasses]="'owl-simple carousel-equal-height carousel-with-shadow'" [options]="options"
+    *ngIf="!loaded else elseBlock">
+    <div *ngFor="let item of [1,2,3,4]"></div>
+</owl-carousel> -->
+
+<!-- <ng-template #elseBlock> 
+    <owl-carousel [carouselClasses]="'owl-simple carousel-equal-height carousel-with-shadow'"
+        [options]="options">
+       
+    </owl-carousel>
+</ng-template> -->

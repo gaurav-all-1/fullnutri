@@ -1,0 +1,59 @@
+<section id="order-detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-2">
+                <p>Product</p>
+            </div>
+            <div class="col-lg-2 col-3">
+                <p>Product Name</p>
+            </div>
+            <!-- <div class="col-lg-2">
+                <p>Product Name</p>
+            </div> -->
+            <div class="col-lg-2 col-3">
+                <p>Category Name</p>
+            </div>
+            <div class="col-lg-2 col-3">
+                <p>Quantity</p>
+            </div>
+            <div class="col-lg-2 col-3">
+                <p>size</p>
+            </div>
+            <div class="col-lg-2 col-3">
+                <p>Price</p>
+            </div>
+            <!-- <div class="col-lg-2">
+                <p>Varient Name</p>
+            </div> -->
+        </div>
+        <hr>
+        <div class="order-list1">
+            <div class="row order-list" *ngFor="let data of myorder">
+                <div class="col-lg-2 col-2">
+                    <div class="order-img">
+                        <img src="{{data.product.productImage[0].url}}" alt="">
+                    </div>
+                   
+                </div>
+                <div class="col-lg-2 col-3 product_detail">
+                    <p>{{data.product.name}}</p>
+                </div>
+                <div class="col-lg-2 col-3 product_detail">
+                    <p>{{data.product.category.name}}</p>
+                </div>
+                <div class="col-lg-2 col-3 product_detail">
+                    <p>{{data.quantity}}</p>
+                </div>
+                <div class="col-lg-2 col-3 product_detail">
+                    <p>{{data.variant.name}}</p>
+                </div>
+                <div class="col-lg-2 col-3 product_detail">
+                    <p>{{data.price}}</p>
+                </div>
+                
+            </div> 
+        </div>
+        
+        <hr>
+    </div>
+</section>

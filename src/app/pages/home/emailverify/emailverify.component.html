@@ -1,0 +1,57 @@
+<main class="main">
+    <molla-page-header title="verify" subtitle="Email"></molla-page-header>
+    <nav class="breadcrumb-nav">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a routerLink="/">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Verify Email</li>
+            </ol>
+        </div>
+    </nav>
+
+    <section id="verify_email">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="verify">
+                        <h1>Password assistance</h1>
+                        Enter the email address associated with your Nutrivillage account.
+                        <p></p>
+                        <form [formGroup]="userForm">
+                            <div class="col-lg-12">
+                                <div class="alert alert-danger" *ngIf = "message!='' && error == true" role="alert">{{message}}</div>
+                                <div class=" alert alert-success" *ngIf = "message!='' && error != true" role="alert">{{message}}</div>
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleFormControlInput1">Email address</label>
+                              <input type="email" class="form-control" id="exampleFormControlInput1" formControlName = "email" placeholder="name@example.com" required>
+                           
+                            </div>
+
+                            <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)" class="alert text-danger upper_box">
+                                <div *ngIf="userForm.controls['email'].errors.required">
+                                Please enter Email
+                              </div>
+                            </div> 
+                            <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)" class="alert text-danger upper_box">
+                                <div *ngIf="userForm.controls['email'].errors.pattern">
+                                Please enter valid Email
+                              </div>
+                            </div> 
+
+                            <div class="text-center">
+                                <!-- <i [class.fa-refresh]="loader" class="fa fa-refresh fa-spin"></i> -->
+                                <button class="btn" (click)="updatePassword()"><i [class.fa-refresh]="loader" class="fa fa-refresh fa-spin"></i> Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+</main>
+

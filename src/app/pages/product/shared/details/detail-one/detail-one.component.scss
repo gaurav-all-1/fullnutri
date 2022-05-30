@@ -1,0 +1,35 @@
+.ratings-text1 {
+    color: #a6c76c;
+    font-size: 2.4rem;
+}
+// .input-group-prepend .btn {
+//     background-color: #74ab26;
+// }
+// .input-group-prepend .btn:hover {
+//     background-color: #000;
+// }
+.isDisabled {
+    
+    
+    pointer-events: none !important;
+  
+  }
+  .share {
+      margin-top: 1pc;
+  }
+  .stock {
+      background-color: #ef837b;
+      padding: 2%;
+  }
+  .stock span {
+      color: #fff;
+  } 
+ 
+  .product-details-footer span {
+    // text-decoration: underline;
+    font-weight: 700;
+    color: #000 !important;
+  }
+  .product-details-footer {
+      text-decoration: underline;
+  }
