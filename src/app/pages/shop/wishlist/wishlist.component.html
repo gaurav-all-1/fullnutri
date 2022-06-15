@@ -46,7 +46,7 @@
                                     </figure>
 
                                     <h3 class="product-title">
-                                        <a [routerLink]="['/product/NutrivillageProducts/'+ data.id]">{{ data.name }}</a>
+                                        <a [routerLink]="['/product/NutrivillageProducts/'+ data.id]">{{ data.name | titlecase }}</a>
                                     </h3>
                                 </div>
                             </td>

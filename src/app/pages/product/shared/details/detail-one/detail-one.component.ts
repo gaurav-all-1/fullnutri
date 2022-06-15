@@ -75,7 +75,7 @@ export class DetailOneComponent implements OnInit {
 
 	ngOnInit(): void {
 
-		
+		console.log("color",this.product)
 
 
 		// if(this.token){
@@ -217,7 +217,7 @@ export class DetailOneComponent implements OnInit {
 
 	buyNowLink(event: Event)
 	{
-		if(this.token){
+		
 		event.preventDefault();
 		if(!this.variant)
 		{
@@ -229,9 +229,7 @@ export class DetailOneComponent implements OnInit {
 			// this.router.navigate(['/shop/productcheckout/'],{queryParams: {productid:this.product.id,varientid:this.variant}});
 			
 		}
-	}else{
-		this.modalService.showLoginModal();
-	}
+	
 
 	}
 

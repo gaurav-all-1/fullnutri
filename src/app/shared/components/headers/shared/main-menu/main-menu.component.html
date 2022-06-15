@@ -13,7 +13,7 @@
                                 <div class="col-md-6">                                                                      
                                     <ul>
                                         <li *ngFor="let product of productList[list.name]" [class.active]="current.includes('shop/sidebar/{{list}}')">
-                                            <a routerLink="/product/NutrivillageProducts/{{product.id}}">{{product.name}}</a>
+                                            <a routerLink="/product/NutrivillageProducts/{{product.id}}" id="sublist1">{{product.name | titlecase }}</a>
                                         </li>                                       
                                     </ul>                                 
                                 </div>                       

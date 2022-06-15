@@ -13,7 +13,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 
 	current = '/';
 	category = [];
-	categoryList:any=[{name:"hi"}];
+	categoryList:any;
 	productList:any;
 	private subscr: Subscription;
 
@@ -32,7 +32,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 	ngOnInit(): void {
 		this.categoryService.getCategoryList().subscribe(res=>{
 			this.categoryList = res.slice(0,4);
-			console.log("hi in main2",this.categoryList)
+			console.log("hi in main2 category",this.categoryList)
 		})
  
 		this.masterService.getMethod("/product/menu").subscribe((res)=>{

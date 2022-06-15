@@ -115,7 +115,7 @@
 	list-style: none;
 	> li {
 		> a {
-			text-transform: uppercase;
+			text-transform: capitalize;
 		}
 	}
 
@@ -181,7 +181,7 @@
 
 	> li {
 		> a {
-			text-transform: uppercase;
+			text-transform: capitalize;
 		}
 	}
 
@@ -306,7 +306,7 @@
 		font-weight: 600;
 		font-size: 1.3rem;
 		line-height: 1.5;
-		text-transform: uppercase;
+		text-transform: capitalize;
 		border-bottom: .2rem solid transparent !important;
 		background: none;
 		padding: .8rem 2rem;

@@ -12,7 +12,7 @@ export class MasterService {
   push(value: any) {
     throw new Error('Method not implemented.');
   }
-  userToken=localStorage.getItem('token');
+  
   // apURL = 'http://18.219.65.148:8081';
   apURL = 'https://nutribackend.in';
 
@@ -25,19 +25,15 @@ export class MasterService {
   }  
 
 
-  httpOption1 = {
-    headers: new HttpHeaders({
-      'Content-Type': 'multipart/form-data',
-      'authorization':`Bearer ${this.userToken}`
-    })
-  }
+ 
 
   header(){
-    if(this.userToken){
+    let userToken=localStorage.getItem('token');
+    if(userToken){
       return   {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
-          'authorization':`Bearer ${this.userToken}`
+          'authorization':`Bearer ${userToken}`
         })
       }
     }
@@ -101,7 +97,13 @@ methodRegistrationPost(data:any, dataApi:any){
 // } 
 
 methodPostProfile(data:any, dataApi:any){
-  return this.http.post<any>(this.apURL+dataApi, data ,this.httpOption1)
+  let userToken=localStorage.getItem('token');
+
+  
+let headers = new HttpHeaders()
+headers=headers.set('Content-type','multipart/form-data')
+headers=headers.set('authorization', `Bearer }`+userToken);
+  return this.http.post<any>(this.apURL+dataApi, data ,this.header())
   .pipe(
     retry(1),
     catchError(this.handleError)

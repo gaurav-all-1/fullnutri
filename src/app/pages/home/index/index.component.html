@@ -110,7 +110,7 @@
                         <div class="banner-content banner-content-top first_banner">
                             
 
-                            <h3 class="banner-title text-secondary-dark">{{this.getoffer[0].product.name}}</h3>
+                            <h3 class="banner-title text-secondary-dark">{{this.getoffer[0].product.name | titlecase}}</h3>
 
                             <div class="banner-text text-secondary-dark font-weight-normal">Love snacking? Get a flat Rs.{{this.getoffer[0].amount}} Off</div>
 
@@ -129,7 +129,7 @@
                         <div class="banner-content banner-content-top">
                             <!-- <h4 class="banner-subtitle  font-weight-normal onsale_get">On Sale</h4> -->
 
-                            <h3 class="banner-title">{{this.getoffer[1].product.name}}</h3>
+                            <h3 class="banner-title">{{this.getoffer[1].product.name | titlecase}}</h3>
                             <div class="banner-text  font-weight-normal">Flat Rs.{{this.getoffer[1].amount}} Off</div>
 
                             <a [routerLink]="['/product/NutrivillageProducts/',getoffer[1].product.id]" class="btn  btn-outline-dark">Shop Now<i
@@ -150,7 +150,7 @@
                                 <div class="banner-content">
                                    
 
-                                    <h3 class="banner-title text-secondary-dark mb-0">{{this.getoffer[2].product.name}}</h3>
+                                    <h3 class="banner-title text-secondary-dark mb-0">{{this.getoffer[2].product.name | titlecase}}</h3>
 
                                     <div class="banner-text font-weight-normal text-secondary-dark">Up to Rs.{{this.getoffer[2].amount}} off
                                     </div>
@@ -170,7 +170,7 @@
                                 <div class="banner-content content-set pt-0">
                                     <!-- <h4 class="banner-subtitle font-weight-normal">New Arrivals</h4> -->
 
-                                    <h3 class="banner-title text-secondary-dark">{{this.getoffer[3].product.name}}</h3>
+                                    <h3 class="banner-title text-secondary-dark">{{this.getoffer[3].product.name | titlecase}}</h3>
 
                                     <div class="banner-text font-weight-normal text-secondary-dark">Flat Rs.{{this.getoffer[3].amount}}% Off
                                     </div>
@@ -196,7 +196,7 @@
                         <div class="deal-content">
                             <h4 class="font-weight-normal text-primary get_deal">Limited Quantities</h4>
                             <h2 class="text-secondary-dark">Deal Of The Day</h2>
-                            <h3 class="banner-title">{{this.getoffer[4].product.name}}</h3>
+                            <h3 class="banner-title">{{this.getoffer[4].product.name | titlecase}}</h3>
                             
 
                            
@@ -228,7 +228,7 @@
 
                         <div class="banner-content banner-content-top last_banner">
                             <h4 class="banner-subtitle best_choice">The Best Choice</h4>
-                            <h3 class="banner-title">{{this.getoffer[5].product.name}}</h3>
+                            <h3 class="banner-title">{{this.getoffer[5].product.name | titlecase}}</h3>
                             <div class="banner-text  font-weight-normal">Flat Rs.{{this.getoffer[5].amount}} Off</div>
                             <a [routerLink]="['/product/NutrivillageProducts/',getoffer[5].product.id]" class="btn  btn-outline-dark">Shop Now<i
                                     class="icon-long-arrow-right"></i></a>

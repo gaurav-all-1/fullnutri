@@ -30,8 +30,9 @@ export class ProductcheckoutComponent implements OnInit {
   offervalue:any
   discountoffer:any
   discount:number=0;
- paymentMode:any;
+ paymentMode:any="COD";
  varient:number;
+ token:any=localStorage.getItem("token");
 
 
   constructor(private formBuilder: FormBuilder,
@@ -84,7 +85,7 @@ export class ProductcheckoutComponent implements OnInit {
 
       console.log("amout",this.discountoffer)
     })
-
+	
     })
 
 
@@ -95,7 +96,7 @@ export class ProductcheckoutComponent implements OnInit {
         firstName:['', [Validators.required,Validators.pattern('^[a-zA-Z]{3,20}$')]],
         lastName:['', [Validators.required,Validators.pattern('^[a-zA-Z]{3,20}$')]],
         country:['', [Validators.required,Validators.pattern('^[a-zA-Z]{3,20}$')]],
-        address:['', [Validators.required,Validators.pattern('^[a-zA-Z0-9_ ]{3,20}$')]],
+        address:['', [Validators.required,Validators.pattern('^[a-zA-Z0-9_ ]{3,200}$')]],
         city:['', Validators.required],
         state:['', Validators.required],
         pinNumber:['', [Validators.required,Validators.pattern('[0-9 ]{6}')]],
@@ -118,7 +119,100 @@ export class ProductcheckoutComponent implements OnInit {
 	  }
 
   placeorder(){
+	  if(this.token){
 		this.loader = true;
+		this.submitted = true;
+	
+			if (this.userForm.invalid) {
+			this.loader = false;
+			  return;
+			}
+	
+	
+		const data={
+				"productId":this.pid,
+		  "variantId":this.varient,
+		  "quantity":this.change,
+				"paymentMethod":this.paymentMode,
+				"amount":this.discountoffer,
+				"shippingAddress":{
+				  "name":this.userForm.get("firstName")?.value + this.userForm.get("lastName")?.value,
+				  "country":this.userForm.get("country")?.value,
+				  "street":this.userForm.get("address")?.value,
+				  "state":this.userForm.get("state")?.value,
+				  "city":this.userForm.get("city")?.value,
+				  "pincode":this.userForm.get("pinNumber")?.value,
+				  "mobile":this.userForm.get("Phone")?.value,
+				  "email":this.userForm.get("Email")?.value
+				}
+			}
+			console.log("cart",this.pid)
+			// location.reload()
+		// console.log("card-remove",this.cartService.removeFromCart(this.cartItems))
+			this.master.methodPost(data,"/order/product").subscribe(res=>{
+				console.log(res, res.msg=="make payment");
+				this.loader = false;
+				if(!res.status){
+				  alert("something Wrong check once again")
+				}
+				if( res.msg=="make payment"){
+					console.log("hi");
+				  var options = {
+					"key": environment.razorKey, // Enter the Key ID generated from the Dashboard
+					"amount": res.data[1], // razorpay amount 
+					"currency": "INR",
+					"name": "Nutri-Village",
+					"description": "Nutri_village Payment",
+					"image": "http://cloud.flybunch.com/images/faviconnutri.jpeg",
+					"order_id": res.data[0], //razorpay id 
+					"handler":function(response:any){
+						console.log(response);
+						let data = response;
+						// data["order"]={"id":res.data[2}
+						var event = new CustomEvent("successPayment",{
+							detail:data,
+							bubbles:true,
+							cancelable:true
+						})
+					 window.dispatchEvent(event);
+					},
+					"prefill": {
+						"name": "Gaurav Kumar",
+						"email": "gaurav.kumar@example.com",
+						"contact": "9999999999"
+					},
+					"notes": {
+						"address": "Razorpay Corporate Office"
+					},
+					"theme": {
+						"color": "#a6c76c"
+					}};
+					var rzp1 = new Razorpay(options);
+					rzp1.open();
+					rzp1.on('payment.failed', function (response: any) {
+					//   Todo - store this information in the server
+					  console.log(response.error.code);
+					  console.log(response.error.description);
+					  console.log(response.error.source);
+					  console.log(response.error.step);
+					  console.log(response.error.reason);
+					  console.log(response.error.metadata.order_id);
+					  console.log(response.error.metadata.payment_id);
+					}
+					);
+				}else{
+				this.loader = false;
+				this.toaster.success("You have created order by cod")
+				this.route.navigate(["/success"])
+				  }
+				},error=>{
+				this.loader = false;
+					this.toaster.error("internal server error");
+				})
+	
+	  }
+		else{
+			this.loader = true;
     this.submitted = true;
 
 		if (this.userForm.invalid) {
@@ -134,7 +228,7 @@ export class ProductcheckoutComponent implements OnInit {
 			"paymentMethod":this.paymentMode,
 			"amount":this.discountoffer,
 			"shippingAddress":{
-			  "name":this.userForm.get("firstName")?.value + this.userForm.get("lastName")?.value,
+			  "name":this.userForm.get("firstName")?.value +" "+ this.userForm.get("lastName")?.value,
 			  "country":this.userForm.get("country")?.value,
 			  "street":this.userForm.get("address")?.value,
 			  "state":this.userForm.get("state")?.value,
@@ -147,7 +241,13 @@ export class ProductcheckoutComponent implements OnInit {
 		console.log("cart",this.pid)
 		// location.reload()
 	// console.log("card-remove",this.cartService.removeFromCart(this.cartItems))
-		this.master.methodPost(data,"/order/product").subscribe(res=>{
+		this.master.methodPost(data,"/order/guest").subscribe(res=>{
+			console.log("guest",res)
+			// console.log("gust-info",res['response'].guestEmail)
+			// console.log("gust-info",res['response'].guestId)
+			// console.log("gust-info",res['response'].guestToken)
+			localStorage.setItem("token", res['response'].guestToken);
+			localStorage.setItem("userId", res['response'].guestId);
 			console.log(res, res.msg=="make payment");
 			this.loader = false;
 			if(!res.status){
@@ -200,13 +300,15 @@ export class ProductcheckoutComponent implements OnInit {
 				);
 			}else{
 			this.loader = false;
-				alert("you have created order by cod")
+			this.toaster.success("You have created order by cod")
+				window.location.href = '/success';
 			  }
 			},error=>{
 			this.loader = false;
 				this.toaster.error("internal server error");
 			})
 
+		}
 
     
   }
@@ -249,7 +351,8 @@ export class ProductcheckoutComponent implements OnInit {
 				if(res.status){
 				  this.toaster.success("payment successful by rzp")
 				//   this.route.navigate(["shop/dashboard"])
-				this.route.navigate(["/success"])
+				// this.route.navigate(["/success"])
+				window.location.href = '/success';
 				//  location.reload()
 				}else{
 				  this.toaster.error("payment failed");

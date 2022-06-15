@@ -33,3 +33,65 @@
   .product-details-footer {
       text-decoration: underline;
   }
+
+  .product-details-action .btn-cart {
+    padding: 1.1rem 1.5rem;
+    max-width: 131px;
+    min-width: 133px;
+    border: 1px solid #a6c76c;
+    margin-left: 66px;
+    font-size: 16px;
+}
+.btn-cart span{
+    font-size: 12px;
+
+}
+.btn-outline-primary-2{
+    margin-left: 66px;
+    
+    min-width: 135px;
+}
+.btn-outline-primary-2 span{
+    font-size: 12px;
+}
+.product-details-action{
+    margin-bottom: 1rem;
+}
+
+
+@media screen and (max-width: 580px){
+.details-action-wrapper {
+    margin-left: 42px;
+    margin-top: 1.5rem;
+}
+.product-details-action{
+    display: table-footer-group;
+}
+.product-details-action {
+    display: flex !important;
+    align-items: center !important;
+}
+.details-action-wrapper[_ngcontent-wah-c99] {
+    margin-left: 20px;
+}
+.product-details-action {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-evenly !important;
+    margin-bottom: 2rem;
+}
+.product-details-action{
+    flex-flow: row !important;
+}
+.details-action-wrapper[_ngcontent-dku-c99] {
+    margin-left: 20px !important;
+}
+.details-action-wrapper{
+    width: 100%;
+    margin-left: 0 !important;
+}
+}
+
+::ng-deep .toast-error {
+    background-color: #ff0d00 !important;
+  }

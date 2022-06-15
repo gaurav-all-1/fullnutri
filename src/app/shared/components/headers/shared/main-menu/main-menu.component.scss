@@ -35,3 +35,18 @@
 // .banner {
 //     background-color: red;
 // }
+
+::ng-deep .header-1 .header-bottom .menu>li>a {
+    text-transform:none !important;
+}
+
+::ng-deep .ng-star-inserted a{
+    font-weight: 500!important;
+    flex-wrap: wrap;
+}
+
+
+
+.menu .megamenu.megamenu-md {
+    width: 300px!important;
+}

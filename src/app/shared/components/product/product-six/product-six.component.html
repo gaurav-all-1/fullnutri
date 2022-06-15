@@ -35,11 +35,12 @@
                 </button> -->
             </ng-template>
         </div>
+    
     </figure>
 
     <div class="product-body">
         <h3 class="product-title">
-            <a [routerLink]="['/product/NutrivillageProducts/'+ product.id]">{{ product.name }}</a>
+            <a [routerLink]="['/product/NutrivillageProducts/'+ product.id]">{{ product.name | titlecase }}</a>
         </h3>
 
         <div class="product-price" *ngIf="!product.stock || product.stock == 0 else elseBlock">

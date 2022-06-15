@@ -24,7 +24,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 	cardData1:any
 	cart_id:any
 	rzrRes:any=[]
- paymentMode:any;
+ paymentMode:any="COD";
 	userForm:any
 	submitted = false;
 	productId:any=[]
@@ -285,6 +285,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 			}else{
 				// alert("you have created order by cod")
 				this.toaster.success("You have created order by cod");
+				this.route.navigate(["/success"])
 				// location.reload()
 			  }
 			},error=>{

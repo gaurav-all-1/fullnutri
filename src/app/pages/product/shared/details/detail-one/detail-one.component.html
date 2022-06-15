@@ -1,5 +1,5 @@
 <div class="product-details">
-    <h1 class="product-title">{{ product.name }}</h1>
+    <h1 class="product-title">{{ product.name | titlecase }}</h1>
 
     <!-- <div class="ratings-container">
         <div class="ratings">
@@ -10,7 +10,6 @@
     </div> -->
 
     <div class="price-container">
-        
         <span class="ratings-text1"> <i class="fa-solid fa-indian-rupee-sign"></i> {{ amount }}</span>
     </div>
 
@@ -51,7 +50,7 @@
               
                 <select name="size" id="size" class="form-control" (change)="updateVarient($event)">
                     <option value="" >Select a size</option>
-                    <option  *ngFor="let variant of product.variants;" value="{{variant.id}}">{{variant.name}}</option>     
+                    <option  *ngFor="let variant of product.variants;" value="{{variant.id}}">{{variant.name | titlecase }}</option>     
                 </select>
             </div>
 
@@ -75,11 +74,12 @@
 
    
     
-    <div class="product-details-action">
-        <a  href="javascript:;" class="btn-product btn-cart"
+    <div class="product-details-action ">
+        <div class="product-btn">
+            <a  href="javascript:;" class="btn-product btn-cart"
             [class.btn-disabled]="!( product.variants.length > 0 )"
             (click)="addCart( $event, 0 )"><span>add to cart</span></a>
-
+        </div>
         
 
 
@@ -93,7 +93,7 @@
 
     <div style="padding-bottom: 10px;">
         <a><button  class="btn btn-outline-primary-2" (click)="buyNowLink($event)">
-            <span>Buy Now</span><i
+            <span>BUY NOW</span><i
             class="icon-long-arrow-right"></i>
         </button></a>
     </div>
@@ -126,10 +126,7 @@
                 class="">
               </share-buttons>
             </div>
-           
-        
-          
-
+     
         </div>
 
         <div *ngIf="product.stock < 1" class="stock">
@@ -148,7 +145,7 @@
                         </a>
                     </figure>
                     <h3 class="product-title">
-                        <a [routerLink]="['/product/NutrivillageProducts/'+ product.id]">{{ product.name }}</a>
+                        <a [routerLink]="['/product/NutrivillageProducts/'+ product.id]">{{ product.name | titlecase }}</a>
                     </h3>
                 </div>
 
